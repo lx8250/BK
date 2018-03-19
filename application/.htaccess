@@ -1,0 +1,9 @@
+deny from All
+#RewriteEngine On
+#RewriteCond %{REQUEST_METHOD} ^TRACE
+#RewriteRule .* - [F]
+#RewriteRule ^api/([\w|\d]+)$ index.php?application [QSA,L]
+#RewriteRule ^index\.html$ index.php [L]
+#RewriteRule ^register\.html$ index.php?m=register [L]
+#RewriteRule ^login\.html$ index.php?m=login [L]
+#RewriteRule ^logout\.html$ index.php?m=logout [L]
