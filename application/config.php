@@ -143,6 +143,10 @@ return [
     // 默认跳转页面对应的模板文件
     'dispatch_success_tmpl'  => THINK_PATH . 'tpl' . DS . 'dispatch_jump.tpl',
     'dispatch_error_tmpl'    => THINK_PATH . 'tpl' . DS . 'dispatch_jump.tpl',
+    //对应的输出模板替换
+    '__PUBLIC__'             => '/public/',
+    '__ROOT__'               => '/',
+    '__STATIC__'             => '/static/',
 
     // +----------------------------------------------------------------------
     // | 异常及错误设置
