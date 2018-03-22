@@ -1,0 +1,100 @@
+/*头标题、轮播图和每日一语*/
+.totle {
+    margin-left: 20%;
+    margin-right: 25%;
+}
+/*热门排行和热门推荐下方的区域*/
+.totle1{
+    margin-left: 20%;
+    margin-right: 52%;
+}
+.totle2{
+    margin-left: 55%;
+    margin-right: 25%;
+}
+#test1{
+    float: left;
+    margin-top: 10px;
+}
+#test2{
+    float: right;
+    margin-top: 10px;
+    background-image:url("/static/images/Z.jpg");
+    background-repeat: no-repeat;
+    width: 382px;
+    height: 272px;
+
+}
+#test2 p{
+    margin-top: 100px;
+    margin-left: 130px;
+    font-size: 16px;
+    color: #f7b0b0;
+    line-height: 25px;
+    position: absolute;
+    width: 230px;
+    height: 120px;
+    font-weight: 500;
+    font-family: \\5B8B\4F53;
+}
+#remenleft #fieldset{
+    height: 310px;
+}
+#remenpaihang #remenleft{
+    margin-top: 20px;
+    float: left;
+    width: 650px;
+    height: 310px;
+}
+#remenpaihang #remenleft div{
+    margin:0;
+    border:0;
+    padding: 9px;
+}
+#rementuijian{
+    margin-top: 313px;
+    width: 380px;
+    height: 390px;
+    border: 1px solid #e2e2e2;
+}
+#tuijianwenzhang{
+    height: 330px;
+}
+#tuijian li{
+    padding-left: 22px;
+    font-size: 20px;
+}
+#wenzhanglist{
+    float: left;
+    margin-top: 10px;
+    width: 650px;
+    height: 500px;
+    border: 1px solid #e2e2e2;
+}
+#wenzhanglist blockquote{
+    width: 614px;
+    height: 60px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
