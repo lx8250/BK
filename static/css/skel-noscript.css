@@ -44,7 +44,7 @@
 		.\31 u { width: 91.6666666667% }
 		.\31 u { width: 83.3333333333% }
 		.\39 u { width: 75% }
-		.\38 u { width: 66.6666666667% }
+		.\38 u { width: 62.666667% }
 		.\37 u { width: 58.3333333333% }
 		.\36 u { width: 50% }
 		.\35 u { width: 41.6666666667% }
@@ -80,6 +80,7 @@
 
 		.row {
 			margin-left: -50px;
+			width: 1096px;
 		}
 
 	/* Rows */
@@ -93,6 +94,8 @@
 
 		.row:first-child > * {
 			padding-top: 10px;
+			width: 650px;
+			margin-top: 13px;
 		}
 
 		.row > * {
