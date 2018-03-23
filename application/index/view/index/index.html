@@ -1,4 +1,4 @@
-{include file="public/header" /}
+{include file="public/header"/}
 <div class="totle">
     <div class="layui-carousel" id="test1" lay-filter="test1">
         <div carousel-item="">
@@ -37,23 +37,43 @@
         </fieldset>
 
     </div>
-    <div id="wenzhanglist">
-        <blockquote class="layui-elem-quote" style="margin-top: 10px;">
-            <div></div>
-        </blockquote>
-        <blockquote class="layui-elem-quote" style="margin-top: 10px;">
-            <div id=""></div>
-        </blockquote>
-        <blockquote class="layui-elem-quote" style="margin-top: 10px;">
-            <div></div>
-        </blockquote>
-
-        <!--<ul class="layui-nav layui-nav-tree layui-inline" lay-filter="demo" style="margin-right: 10px;">-->
-        <!--<li class="layui-nav-item"><a href="">默认展开</a></li>-->
-        <!--<li class="layui-nav-item"><a href="">解决方案</a></li>-->
-        <!--<li class="layui-nav-item"><a href="">云市场</a></li>-->
-        <!--<li class="layui-nav-item"><a href="">社区</a></li>-->
-        <!--</ul>-->
+    <div id="content" class="8u skel-cell-important">
+    <div class="article shadow">
+        <div class="article-left">
+            <img src="__STATIC__/images/Z.jpg" alt="你好世界" width="153px" height="117px"/>
+        </div>
+        <div class="article-right">
+            <div class="article-title">
+                <a href="">你好世界</a>
+            </div>
+            <div class="article-abstract">
+                你好世界！
+            </div>
+        </div>
+        <div class="clear"></div>
+        <div class="article-footer">
+            <span>
+                <i class="fa fa-clock-o"/>
+                &nbsp;&nbsp;2018-3-14 15:51:16
+            </span>
+            <span class="article-author">
+                <i class="fa fa-user"></i>
+                &nbsp;&nbsp;LiXin
+            </span>
+            <span>
+                <i class="fa fa-tag"></i>
+                &nbsp;&nbsp;<a href="#">PHP</a>
+            </span>
+            <span class="article-viewinfo">
+                <i class="fa fa-eye"></i>
+                &nbsp;&nbsp;29
+            </span>
+            <span class="article-viewinfo">
+                <i class="fa fa-commenting"></i>
+                &nbsp;&nbsp;2
+            </span>
+        </div>
+    </div>
     </div>
 </div>
 <div class="totle2">
@@ -103,3 +123,15 @@
         </div>
     </div>
 </div>
+<script>
+    layui.use('element', function(){
+        var element = layui.element; //导航的hover效果、二级菜单等功能，需要依赖element模块
+
+        //监听导航点击
+        element.on('nav(demo)', function(elem){
+            //console.log(elem)
+            layer.msg(elem.text());
+        });
+    });
+</script>
+

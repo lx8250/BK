@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:45:"E:\BK/application/index\view\index\index.html";i:1521710575;s:47:"E:\BK\application\index\view\public\header.html";i:1521710951;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:45:"E:\BK/application/index\view\index\index.html";i:1521793609;s:47:"E:\BK\application\index\view\public\header.html";i:1521793443;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,9 +9,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="stylesheet" href="/static/css/layui.css" media="all">
     <link rel="stylesheet" href="/static/css/index.css" media="all">
-    <script src="/static/lay/layui.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/font-awesome.min.css"/>
     <script src="/static/layui.js" charset="utf-8"></script>
     <script src="/static/index.js" charset="utf-8"></script>
+    <script src="/static/js/jquery.min.js" charset="utf-8"></script>
+    <script src="/static/js/bootstrap.min.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="/static/css/skel-noscript.css" />
+    <link rel="stylesheet" href="/static/css/css/style.css" />
+
 </head>
 <body>
 <!--上方的时间和头标题-->
@@ -76,23 +82,43 @@
         </fieldset>
 
     </div>
-    <div id="wenzhanglist">
-        <blockquote class="layui-elem-quote" style="margin-top: 10px;">
-            <div></div>
-        </blockquote>
-        <blockquote class="layui-elem-quote" style="margin-top: 10px;">
-            <div id="test2"></div>
-        </blockquote>
-        <blockquote class="layui-elem-quote" style="margin-top: 10px;">
-            <div></div>
-        </blockquote>
-
-        <!--<ul class="layui-nav layui-nav-tree layui-inline" lay-filter="demo" style="margin-right: 10px;">-->
-        <!--<li class="layui-nav-item"><a href="">默认展开</a></li>-->
-        <!--<li class="layui-nav-item"><a href="">解决方案</a></li>-->
-        <!--<li class="layui-nav-item"><a href="">云市场</a></li>-->
-        <!--<li class="layui-nav-item"><a href="">社区</a></li>-->
-        <!--</ul>-->
+    <div id="content" class="8u skel-cell-important">
+    <div class="article shadow">
+        <div class="article-left">
+            <img src="/static/images/Z.jpg" alt="你好世界" width="153px" height="117px"/>
+        </div>
+        <div class="article-right">
+            <div class="article-title">
+                <a href="">你好世界</a>
+            </div>
+            <div class="article-abstract">
+                你好世界！
+            </div>
+        </div>
+        <div class="clear"></div>
+        <div class="article-footer">
+            <span>
+                <i class="fa fa-clock-o"/>
+                &nbsp;&nbsp;2018-3-14 15:51:16
+            </span>
+            <span class="article-author">
+                <i class="fa fa-user"></i>
+                &nbsp;&nbsp;LiXin
+            </span>
+            <span>
+                <i class="fa fa-tag"></i>
+                &nbsp;&nbsp;<a href="#">PHP</a>
+            </span>
+            <span class="article-viewinfo">
+                <i class="fa fa-eye"></i>
+                &nbsp;&nbsp;29
+            </span>
+            <span class="article-viewinfo">
+                <i class="fa fa-commenting"></i>
+                &nbsp;&nbsp;2
+            </span>
+        </div>
+    </div>
     </div>
 </div>
 <div class="totle2">
@@ -143,61 +169,14 @@
     </div>
 </div>
 <script>
-    layui.use(['util', 'laydate', 'layer'], function(){
-        var util = layui.util
-            ,laydate = layui.laydate
-            ,layer = layui.layer;
-        //固定块
-        util.fixbar({
-            bar1: true
-            ,bar2: true
-            ,css: {right: 50, bottom: 100}
-            ,bgcolor: '#393D49'
-            ,click: function(type){
-                if(type === 'bar1'){
-                    layer.msg('icon是可以随便换的')
-                } else if(type === 'bar2') {
-                    layer.msg('两个bar都可以设定是否开启')
-                }
-            }
+    layui.use('element', function(){
+        var element = layui.element; //导航的hover效果、二级菜单等功能，需要依赖element模块
+
+        //监听导航点击
+        element.on('nav(demo)', function(elem){
+            //console.log(elem)
+            layer.msg(elem.text());
         });
-
-        //倒计时
-        var thisTimer, setCountdown = function(y, M, d, H, m, s){
-            var endTime = new Date(y, M||0, d||1, H||0, m||0, s||0) //结束日期
-                ,serverTime = new Date(); //假设为当前服务器时间，这里采用的是本地时间，实际使用一般是取服务端的
-
-            clearTimeout(thisTimer);
-            util.countdown(endTime, serverTime, function(date, serverTime, timer){
-                var str = date[0] + '天' + date[1] + '时' +  date[2] + '分' + date[3] + '秒';
-                lay('#test2').html(str);
-                thisTimer = timer;
-            });
-        };
-        setCountdown(2099,1,1);
-
-        laydate.render({
-            elem: '#test1'
-            ,type: 'datetime'
-            ,done: function(value, date){
-                setCountdown(date.year, date.month - 1, date.date, date.hours, date.minutes, date.seconds);
-            }
-        });
-
-
-        //某个时间在当前时间的多久前
-        var setTimeAgo = function(y, M, d, H, m, s){
-            var str = util.timeAgo(new Date(y, M||0, d||1, H||0, m||0, s||0));
-            lay('#test4').html(str);
-        };
-
-        laydate.render({
-            elem: '#test3'
-            ,type: 'datetime'
-            ,done: function(value, date){
-                setTimeAgo(date.year, date.month - 1, date.date, date.hours, date.minutes, date.seconds);
-            }
-        });
-
     });
 </script>
+
