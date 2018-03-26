@@ -1,3 +1,4 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:45:"E:\BK/application/index\view\fresh\fresh.html";i:1522053080;s:47:"E:\BK\application\index\view\public\header.html";i:1522055230;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,30 +7,30 @@
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <script src="__STATIC__/js/jquery.min.js" charset="utf-8"></script>
-    <link rel="stylesheet" href="__STATIC__/css/layui.css" media="all">
+    <script src="/static/js/jquery.min.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="/static/css/layui.css" media="all">
     <link href="//cdn.bootcss.com/tether/1.3.6/css/tether.min.css" rel="stylesheet">
     <script src="//cdn.bootcss.com/tether/1.3.6/js/tether.min.js"></script>
 
-    <link rel="stylesheet" href="__STATIC__/css/bootstrap.min.css">
-    <script src="__STATIC__/js/bootstrap.min.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <script src="/static/js/bootstrap.min.js" charset="utf-8"></script>
     <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">-->
-    <link rel="stylesheet" href="__STATIC__/css/font-awesome.min.css"/>
-    <script src="__STATIC__/layui.js" charset="utf-8"></script>
-    <script src="__STATIC__/js/index.js" charset="utf-8"></script>
-    <link rel="stylesheet" href="__STATIC__/css/skel-noscript.css"/>
-    <link rel="stylesheet" href="__STATIC__/css/style.css"/>
-    <link rel="stylesheet" href="__STATIC__/css/home.css">
-    <link rel="stylesheet" href="__STATIC__/css/global.css">
-    <link rel="stylesheet" href="__STATIC__/css/style-desktop.css"/>
-    <link rel="stylesheet" href="__STATIC__/css/index.css" media="all">
+    <link rel="stylesheet" href="/static/css/font-awesome.min.css"/>
+    <script src="/static/layui.js" charset="utf-8"></script>
+    <script src="/static/js/index.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="/static/css/skel-noscript.css"/>
+    <link rel="stylesheet" href="/static/css/style.css"/>
+    <link rel="stylesheet" href="/static/css/home.css">
+    <link rel="stylesheet" href="/static/css/global.css">
+    <link rel="stylesheet" href="/static/css/style-desktop.css"/>
+    <link rel="stylesheet" href="/static/css/index.css" media="all">
 </head>
 <body>
 <!--上方的时间和头标题-->
 <header>
     <div class="totle row">
         <ul style="height: 30px;padding-top: 7px;width: 1040px">
-            <li class="layui-nav-item" style="float: left;margin-left: -40px">Hi,你好，现在是：{:date('Y年-m月-d日 H:m')}&nbsp;&nbsp;&nbsp;星期{:date('N')}&nbsp;&nbsp;&nbsp;本年的第{:date('W')}周</li>
+            <li class="layui-nav-item" style="float: left;margin-left: -40px">Hi,你好，现在是：<?php echo date('Y年-m月-d日 H:m'); ?>&nbsp;&nbsp;&nbsp;星期<?php echo date('N'); ?>&nbsp;&nbsp;&nbsp;本年的第<?php echo date('W'); ?>周</li>
             <li style="float: right">您好！欢迎访问李鑫的个人博客</li>
         </ul>
     </div>
@@ -59,3 +60,4 @@
         });
     </script>
 </header>
+<h1>Hello World！</h1>

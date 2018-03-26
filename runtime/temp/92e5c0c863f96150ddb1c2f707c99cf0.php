@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="/static/css/layui.css" media="all">
     <link rel="stylesheet" href="/static/css/index.css" media="all">
     <script src="/static/layui.js" charset="utf-8"></script>
-    <script src="/static/index.js" charset="utf-8"></script>
+    <script src="/static/js/index.js" charset="utf-8"></script>
 </head>
 <body>
 <!--上方的时间和头标题-->

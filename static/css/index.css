@@ -3,6 +3,14 @@
     margin-left: 20%;
     margin-right: 25%;
 }
+#testone{
+background-color: red;
+    padding-top: 10px;
+    float: right;
+    color: black;
+    margin-left: 232px;
+    padding-right: 9px;
+}
 /*热门排行和热门推荐下方的区域*/
 .totle1{
     margin-left: 20%;
