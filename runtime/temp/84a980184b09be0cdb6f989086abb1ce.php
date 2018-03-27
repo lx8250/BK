@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:45:"E:\BK/application/index\view\fresh\fresh.html";i:1522117145;s:47:"E:\BK\application\index\view\public\header.html";i:1522135995;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:51:"E:\BK/application/index\view\personal\personal.html";i:1522117907;s:47:"E:\BK\application\index\view\public\header.html";i:1522135995;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -60,5 +60,5 @@
 </header>
 
 <h1 class="totle" style="background-color: red">
-    这是新鲜科技页面
+    这是个人中心页面
 </h1>

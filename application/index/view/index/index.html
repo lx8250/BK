@@ -1,7 +1,7 @@
 {include file="public/header" /}
 <div class="totle col-xs-7" style="width: 1080px;margin-left: 19%">
     <div class="layui-carousel" id="test1" lay-filter="test1">
-        <div carousel-item="" >
+        <div carousel-item="" style="margin-left: 5px">
             <div><img src="__STATIC__/images/lunbo/1.png"></div>
             <div><img src="__STATIC__/images/lunbo/2.png"></div>
         </div>
@@ -147,3 +147,38 @@
         </div>
     </div>
 </div>
+
+<span style="font-size:14px">
+    <p id="back-to-top">
+        <a href="#top">
+            <img src="__STATIC__/images/time.jpg" alt="返回顶部"/></a>
+    </p>
+</span>
+<script>
+    // 回到顶部
+    $(function(){
+        //当滚动条的位置处于距顶部100像素以下时，跳转链接出现，否则消失
+        $(function () {
+            $(window).scroll(function(){
+                if ($(window).scrollTop()>100){
+                    $("#back-to-top").fadeIn(1000);
+                }
+                else
+                {
+                    $("#back-to-top").fadeOut(1000);
+                }
+            });
+
+            //当点击跳转链接后，回到页面顶部位置
+            $("#back-to-top").click(function(){
+                //$('body,html').animate({scrollTop:0},1000);
+                if ($('html').scrollTop()) {
+                    $('html').animate({ scrollTop: 0 }, 1000);
+                    return false;
+                }
+                $('body').animate({ scrollTop: 0 }, 1000);
+                return false;
+            });
+        });
+    });
+</script>

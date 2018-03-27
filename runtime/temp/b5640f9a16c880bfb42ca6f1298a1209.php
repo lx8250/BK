@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:45:"E:\BK/application/index\view\index\index.html";i:1522052740;s:47:"E:\BK\application\index\view\public\header.html";i:1522053164;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:45:"E:\BK/application/index\view\index\index.html";i:1522135974;s:47:"E:\BK\application\index\view\public\header.html";i:1522135995;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,19 +11,21 @@
     <link rel="stylesheet" href="/static/css/layui.css" media="all">
     <link href="//cdn.bootcss.com/tether/1.3.6/css/tether.min.css" rel="stylesheet">
     <script src="//cdn.bootcss.com/tether/1.3.6/js/tether.min.js"></script>
-
     <link rel="stylesheet" href="/static/css/bootstrap.min.css">
     <script src="/static/js/bootstrap.min.js" charset="utf-8"></script>
+    <!--博客上的地址-->
     <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">-->
     <link rel="stylesheet" href="/static/css/font-awesome.min.css"/>
     <script src="/static/layui.js" charset="utf-8"></script>
     <script src="/static/js/index.js" charset="utf-8"></script>
+    <script src="/static/js/jquery.cookie.js" charset="utf-8"></script>
     <link rel="stylesheet" href="/static/css/skel-noscript.css"/>
     <link rel="stylesheet" href="/static/css/style.css"/>
     <link rel="stylesheet" href="/static/css/home.css">
     <link rel="stylesheet" href="/static/css/global.css">
     <link rel="stylesheet" href="/static/css/style-desktop.css"/>
     <link rel="stylesheet" href="/static/css/index.css" media="all">
+
 </head>
 <body>
 <!--上方的时间和头标题-->
@@ -36,23 +38,30 @@
     </div>
     <div class="totle row">
         <ul class="layui-nav layui-bg-cyan" style="padding-top: 0px">
-            <li class="layui-nav-item layui-this" style="margin-left: -40px"><a href="">首页</a></li>
-            <li class="layui-nav-item"><a href="../index/Fresh">新鲜科技</a></li>
-            <li class="layui-nav-item"><a href="javascript:;">生活笔记</a></li>
-            <li class="layui-nav-item"><a href="javascript:;">给我留言</a></li>
-            <li class="layui-nav-item"><a href="javascript:;">赞助作者</a></li>
-            <li class="layui-nav-item"><a href="javascript:;">个人中心</a></li>
+            <li class="layui-nav-item layui-this" style="margin-left: -40px"><a href="<?php echo url('/index/index/index'); ?>">首页</a></li>
+            <li class="layui-nav-item"><a href="<?php echo url('/index/fresh/fresh'); ?>">新鲜科技</a></li>
+            <li class="layui-nav-item"><a href="<?php echo url('/index/note/note'); ?>">生活笔记</a></li>
+            <li class="layui-nav-item"><a href="<?php echo url('/index/message/message'); ?>">给我留言</a></li>
+            <li class="layui-nav-item"><a href="<?php echo url('/index/sponsor/sponsor'); ?>">赞助作者</a></li>
+            <li class="layui-nav-item"><a href="<?php echo url('/index/personal/personal'); ?>">个人中心</a></li>
             <li style="padding-top: 10px;float: right;color: black;margin-left: 232px;padding-right: 9px;" class="layui-input-inline">
-                <input type="text" name="title" style="width: 180px;float: left;" lay-verify="required" id=""
-                       placeholder="请输入想要查找的内容..." class="layui-input">
+                <input type="text" name="title" style="width: 180px;float: left;" lay-verify="required" placeholder="请输入想要查找的内容..." class="layui-input">
                 <button class="layui-btn layui-btn-normal">搜索</button>
             </li>
         </ul>
     </div>
+    <script type="text/javascript">
+        $(function(){
+            $('.layui-nav-item').click(function(){
+//                $.cookie('lable', $(this).index());
+            });
+        });
+    </script>
 </header>
+
 <div class="totle col-xs-7" style="width: 1080px;margin-left: 19%">
     <div class="layui-carousel" id="test1" lay-filter="test1">
-        <div carousel-item="" >
+        <div carousel-item="" style="margin-left: 5px">
             <div><img src="/static/images/lunbo/1.png"></div>
             <div><img src="/static/images/lunbo/2.png"></div>
         </div>
@@ -198,3 +207,38 @@
         </div>
     </div>
 </div>
+
+<span style="font-size:14px">
+    <p id="back-to-top">
+        <a href="#top">
+            <img src="/static/images/time.jpg" alt="返回顶部"/></a>
+    </p>
+</span>
+<script>
+    // 回到顶部
+    $(function(){
+        //当滚动条的位置处于距顶部100像素以下时，跳转链接出现，否则消失
+        $(function () {
+            $(window).scroll(function(){
+                if ($(window).scrollTop()>100){
+                    $("#back-to-top").fadeIn(1000);
+                }
+                else
+                {
+                    $("#back-to-top").fadeOut(1000);
+                }
+            });
+
+            //当点击跳转链接后，回到页面顶部位置
+            $("#back-to-top").click(function(){
+                //$('body,html').animate({scrollTop:0},1000);
+                if ($('html').scrollTop()) {
+                    $('html').animate({ scrollTop: 0 }, 1000);
+                    return false;
+                }
+                $('body').animate({ scrollTop: 0 }, 1000);
+                return false;
+            });
+        });
+    });
+</script>
