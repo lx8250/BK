@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:45:"E:\BK/application/index\view\index\index.html";i:1522135974;s:47:"E:\BK\application\index\view\public\header.html";i:1522135995;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:45:"E:\BK/application/index\view\index\index.html";i:1522224765;s:47:"E:\BK\application\index\view\public\header.html";i:1522226989;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,13 +18,17 @@
     <link rel="stylesheet" href="/static/css/font-awesome.min.css"/>
     <script src="/static/layui.js" charset="utf-8"></script>
     <script src="/static/js/index.js" charset="utf-8"></script>
-    <script src="/static/js/jquery.cookie.js" charset="utf-8"></script>
+    <!--<script src="/static/js/jquery.cookie.js" charset="utf-8"></script>-->
     <link rel="stylesheet" href="/static/css/skel-noscript.css"/>
     <link rel="stylesheet" href="/static/css/style.css"/>
     <link rel="stylesheet" href="/static/css/home.css">
     <link rel="stylesheet" href="/static/css/global.css">
     <link rel="stylesheet" href="/static/css/style-desktop.css"/>
     <link rel="stylesheet" href="/static/css/index.css" media="all">
+    <link rel="stylesheet" href="/static/css/article.css"/>
+    <link rel="stylesheet" href="/static/css/Note.css"/>
+
+
 
 </head>
 <body>
@@ -38,7 +42,7 @@
     </div>
     <div class="totle row">
         <ul class="layui-nav layui-bg-cyan" style="padding-top: 0px">
-            <li class="layui-nav-item layui-this" style="margin-left: -40px"><a href="<?php echo url('/index/index/index'); ?>">首页</a></li>
+            <li class="layui-nav-item" style="margin-left: -40px"><a href="<?php echo url('/index/index/index'); ?>">首页</a></li>
             <li class="layui-nav-item"><a href="<?php echo url('/index/fresh/fresh'); ?>">新鲜科技</a></li>
             <li class="layui-nav-item"><a href="<?php echo url('/index/note/note'); ?>">生活笔记</a></li>
             <li class="layui-nav-item"><a href="<?php echo url('/index/message/message'); ?>">给我留言</a></li>
@@ -50,12 +54,54 @@
             </li>
         </ul>
     </div>
-    <script type="text/javascript">
+    <!--返回顶部-->
+    <span style="font-size:14px">
+    <p id="back-to-top">
+        <a href="#top">
+            <img src="/static/images/time.jpg" alt="返回顶部"/></a>
+    </p>
+</span>
+    <script>
+        // 回到顶部
         $(function(){
-            $('.layui-nav-item').click(function(){
-//                $.cookie('lable', $(this).index());
+            //当滚动条的位置处于距顶部100像素以下时，跳转链接出现，否则消失
+            $(function () {
+                $(window).scroll(function(){
+                    if ($(window).scrollTop()>100){
+                        $("#back-to-top").fadeIn(1000);
+                    }
+                    else
+                    {
+                        $("#back-to-top").fadeOut(1000);
+                    }
+                });
+
+                //当点击跳转链接后，回到页面顶部位置
+                $("#back-to-top").click(function(){
+                    //$('body,html').animate({scrollTop:0},1000);
+                    if ($('html').scrollTop()) {
+                        $('html').animate({ scrollTop: 0 }, 1000);
+                        return false;
+                    }
+                    $('body').animate({ scrollTop: 0 }, 1000);
+                    return false;
+                });
             });
         });
+    </script>
+    <script type="text/javascript">
+        var urlstr = location.href;
+        var urlstatus=false;
+        $(".layui-nav a").each(function () {
+            var aa = $(this).attr('href').substr(0,$(this).attr('href').length-5);
+            if (urlstr.indexOf(aa) > -1&&$(this).attr('href')!='') {
+                $(this).addClass('layui-this');
+                urlstatus = true;
+            }else {
+                $(this).removeClass('layui-this');
+            }
+        });
+        if (!urlstatus) {$(".layui-nav a").eq(0).addClass('layui-this');}
     </script>
 </header>
 
@@ -73,7 +119,7 @@
 <div id="main" class="totle">
     <div class="row">
         <!-- Content -->
-        <div id="content" class="8u skel-cell-important">
+        <div id="content" class="8u skel-cell-important" style="width: 650px;margin-left: 10px">
             <div class="article shadow">
                 <div class="article-left">
                     <img src="/static/images/Z.jpg" alt="" width="150px" height="116px">
@@ -92,7 +138,28 @@
                     <span class="article-author"><i class="fa fa-user"></i>&nbsp;&nbsp;Leo</span>
                     <span><i class="fa fa-tag"></i>&nbsp;&nbsp;<a href="#">PHP</a></span>
                     <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;35</span>
-                    <span class="article-viewinfo"><i class="fa fa-commenting"></i>&nbsp;1</span>
+                    <span class="article-viewinfo"><i class="fa fa-comments"></i>&nbsp;1</span>
+                </div>
+            </div>
+            <div class="article shadow">
+                <div class="article-left">
+                    <img src="/static/images/Z.jpg" alt="" width="150px" height="116px">
+                </div>
+                <div class="article-right">
+                    <div class="article-title">
+                        <a href="javascript:void(0)">php简易爬虫</a>
+                    </div>
+                    <div class="article-abstract">
+                        说这是一个爬虫有点说大话了，但这个名字又恰到好处，所以在前面加了”简易“两个字，表明 这是一个阉割的爬虫，简单的使用或者玩玩儿还是可以的。
+                    </div>
+                </div>
+                <div class="clear"></div>
+                <div class="article-footer">
+                    <span><i class="fa fa-clock-o"></i>&nbsp;&nbsp;2018-03-14 15:51:16</span>
+                    <span class="article-author"><i class="fa fa-user"></i>&nbsp;&nbsp;Leo</span>
+                    <span><i class="fa fa-tag"></i>&nbsp;&nbsp;<a href="#">PHP</a></span>
+                    <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;35</span>
+                    <span class="article-viewinfo"><i class="fa fa-comments"></i>&nbsp;1</span>
                 </div>
             </div>
             <div class="article shadow">
@@ -113,7 +180,7 @@
                     <span class="article-author"><i class="fa fa-user"></i>&nbsp;&nbsp;田中裕之</span>
                     <span><i class="fa fa-tag"></i>&nbsp;&nbsp;<a href="#">PHP</a></span>
                     <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;23</span>
-                    <span class="article-viewinfo"><i class="fa fa-commenting"></i>&nbsp;1</span>
+                    <span class="article-viewinfo"><i class="fa fa-comments"></i>&nbsp;1</span>
                 </div>
             </div>
             <div class="article shadow">
@@ -134,7 +201,7 @@
                     <span class="article-author"><i class="fa fa-user"></i>&nbsp;&nbsp;溧阳</span>
                     <span><i class="fa fa-tag"></i>&nbsp;&nbsp;<a href="#">PHP</a></span>
                     <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;19</span>
-                    <span class="article-viewinfo"><i class="fa fa-commenting"></i>&nbsp;1</span>
+                    <span class="article-viewinfo"><i class="fa fa-comments"></i>&nbsp;1</span>
                 </div>
             </div>
             <div class="article shadow">
@@ -155,7 +222,7 @@
                     <span class="article-author"><i class="fa fa-user"></i>&nbsp;&nbsp;admin</span>
                     <span><i class="fa fa-tag"></i>&nbsp;&nbsp;<a href="#">JavaScript</a></span>
                     <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;19</span>
-                    <span class="article-viewinfo"><i class="fa fa-commenting"></i>&nbsp;3</span>
+                    <span class="article-viewinfo"><i class="fa fa-comments"></i>&nbsp;3</span>
                 </div>
             </div>
             <div>
@@ -208,37 +275,3 @@
     </div>
 </div>
 
-<span style="font-size:14px">
-    <p id="back-to-top">
-        <a href="#top">
-            <img src="/static/images/time.jpg" alt="返回顶部"/></a>
-    </p>
-</span>
-<script>
-    // 回到顶部
-    $(function(){
-        //当滚动条的位置处于距顶部100像素以下时，跳转链接出现，否则消失
-        $(function () {
-            $(window).scroll(function(){
-                if ($(window).scrollTop()>100){
-                    $("#back-to-top").fadeIn(1000);
-                }
-                else
-                {
-                    $("#back-to-top").fadeOut(1000);
-                }
-            });
-
-            //当点击跳转链接后，回到页面顶部位置
-            $("#back-to-top").click(function(){
-                //$('body,html').animate({scrollTop:0},1000);
-                if ($('html').scrollTop()) {
-                    $('html').animate({ scrollTop: 0 }, 1000);
-                    return false;
-                }
-                $('body').animate({ scrollTop: 0 }, 1000);
-                return false;
-            });
-        });
-    });
-</script>

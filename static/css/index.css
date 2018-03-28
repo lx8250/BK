@@ -63,10 +63,15 @@ p#back-to-top a{
     -webkit-transition:color 1s;
     -o-transition:color 1s;
 }
-
-
-
-
+#main .row .blog-module .shadow .mm{
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 13pt;
+    font-weight: 300;
+    line-height: 1.75em;
+    width: 380px;
+    height: 330px;
+    float: right;
+}
 
 
 

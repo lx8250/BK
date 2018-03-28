@@ -527,10 +527,11 @@
     }
 
     .article > .article-right > .article-abstract {
-        font-size: 14px;
+        font-size: 15px;
         display: block;
         margin-top: 10px;
         text-indent: 2em;
+        line-height: 23px;
     }
 
     .article > .article-footer {
@@ -573,23 +574,24 @@
     height: 100%;
 }
 
-    .blog-module > .blog-module-title {
-        border-bottom: 1px solid cornflowerblue;
-        font-size: 15px;
-        font-weight: 500;
-        padding: 10 0 5px 0;
-        margin-bottom: 5px;
-    }
+.blog-module > .blog-module-title {
+    border-bottom: 1px solid cornflowerblue;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 10 0 5px 0;
+    margin-bottom: 5px;
+}
 
 .blog-module-ul li,
 .blog-module-ul .fa {
     margin: 3px 0;
 }
 
-    .blog-module-ul li .fa {
-        color: cornflowerblue;
-    }
+.blog-module-ul li .fa {
+    color: cornflowerblue;
+}
 /*右侧模块END*/
+
 
 /*文章分类导航*/
 .article-category {

@@ -9,7 +9,7 @@
     float: right;
     margin-right: 42px;
 }
-#shadow,    input{
+#shadow,input{
     font-family: 'Roboto Condensed', sans-serif;
     font-size: 13pt;
     font-weight: 300;
@@ -32,7 +32,6 @@ a:hover {
 /* Powered by Font Awesome by Dave Gandy | http://fontawesome.io                 */
 /* Licensed under the SIL OFL 1.1 (font), MIT (CSS)                              */
 /*********************************************************************************/
-
 .fa {
     text-decoration: none;
 }
