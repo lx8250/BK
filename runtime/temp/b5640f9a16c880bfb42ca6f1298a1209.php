@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:45:"E:\BK/application/index\view\index\index.html";i:1522224765;s:47:"E:\BK\application\index\view\public\header.html";i:1522226989;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:45:"E:\BK/application/index\view\index\index.html";i:1522309337;s:47:"E:\BK\application\index\view\public\header.html";i:1522381041;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="/static/css/font-awesome.min.css"/>
     <script src="/static/layui.js" charset="utf-8"></script>
     <script src="/static/js/index.js" charset="utf-8"></script>
+    <script src="/static/js/message.js" charset="utf-8"></script>
     <!--<script src="/static/js/jquery.cookie.js" charset="utf-8"></script>-->
     <link rel="stylesheet" href="/static/css/skel-noscript.css"/>
     <link rel="stylesheet" href="/static/css/style.css"/>
@@ -27,9 +28,6 @@
     <link rel="stylesheet" href="/static/css/index.css" media="all">
     <link rel="stylesheet" href="/static/css/article.css"/>
     <link rel="stylesheet" href="/static/css/Note.css"/>
-
-
-
 </head>
 <body>
 <!--上方的时间和头标题-->
@@ -46,9 +44,9 @@
             <li class="layui-nav-item"><a href="<?php echo url('/index/fresh/fresh'); ?>">新鲜科技</a></li>
             <li class="layui-nav-item"><a href="<?php echo url('/index/note/note'); ?>">生活笔记</a></li>
             <li class="layui-nav-item"><a href="<?php echo url('/index/message/message'); ?>">给我留言</a></li>
-            <li class="layui-nav-item"><a href="<?php echo url('/index/sponsor/sponsor'); ?>">赞助作者</a></li>
+            <!--<li class="layui-nav-item"><a href="<?php echo url('/index/sponsor/sponsor'); ?>">赞助作者</a></li>-->
             <li class="layui-nav-item"><a href="<?php echo url('/index/personal/personal'); ?>">个人中心</a></li>
-            <li style="padding-top: 10px;float: right;color: black;margin-left: 232px;padding-right: 9px;" class="layui-input-inline">
+            <li style="padding-top: 10px;float: right;color: black;margin-left: 326px;padding-right: 9px;" class="layui-input-inline">
                 <input type="text" name="title" style="width: 180px;float: left;" lay-verify="required" placeholder="请输入想要查找的内容..." class="layui-input">
                 <button class="layui-btn layui-btn-normal">搜索</button>
             </li>
@@ -248,11 +246,13 @@
                     </div>
                     <p class="blogerinfo-nickname">Absolutely</p>
                     <p class="blogerinfo-introduce">一枚90后后端程序员，PHP开发工程师</p>
-                    <p class="blogerinfo-location"><i class="fa fa-location-arrow"></i>&nbsp;广东 - 珠海</p>
+                    <p class="blogerinfo-location"><i class="fa fa-location-arrow"></i>&nbsp;河南 - 洛阳</p>
                     <hr>
                     <div class="blogerinfo-contact">
-                        <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=970673906&amp;site=qq&amp;menu=yes" title="QQ交流"><i class="fa fa-qq fa-2x"></i></a>
-                        <a target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=TiInNCYnOSsnfXx9DighNiMvJyJgLSEj" title="给我写信"><i class="fa fa-envelope fa-2x"></i></a>
+                        <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=1372470407&amp;site=qq&amp;menu=yes" title="QQ交流"><i class="fa fa-qq fa-2x"></i></a>
+                        <!--QQ邮箱的模板-->
+                        <!--<a target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=TiInNCYnOSsnfXx9DighNiMvJyJgLSEj" title="给我写信"><i class="fa fa-envelope fa-2x"></i></a>-->
+                        <a target="_blank" href="Mailto:lx8250@126.com?CC=lx8250@126.com&BCC=lx8250@126.com&Subject=Hello&Body=你好" title="给我写信"><i class="fa fa-envelope fa-2x"></i></a>
                         <a target="_blank" title="新浪微博" href="javascript:layer.msg('转到你的微博主页')"><i class="fa fa-weibo fa-2x"></i></a>
                         <a target="_blank" title="码云" href="javascript:layer.msg('转到你的github主页')"><i class="fa fa-git fa-2x"></i></a>
                     </div>

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:49:"E:\BK/application/index\view\sponsor\sponsor.html";i:1522117899;s:47:"E:\BK\application\index\view\public\header.html";i:1522220536;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:49:"E:\BK/application/index\view\sponsor\sponsor.html";i:1522293198;s:47:"E:\BK\application\index\view\public\header.html";i:1522379978;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,10 +26,7 @@
     <link rel="stylesheet" href="/static/css/style-desktop.css"/>
     <link rel="stylesheet" href="/static/css/index.css" media="all">
     <link rel="stylesheet" href="/static/css/article.css"/>
-    <link rel="stylesheet" href="/static/css/note.css" type="text/css"/>
-
-
-
+    <link rel="stylesheet" href="/static/css/Note.css"/>
 </head>
 <body>
 <!--上方的时间和头标题-->
@@ -46,7 +43,7 @@
             <li class="layui-nav-item"><a href="<?php echo url('/index/fresh/fresh'); ?>">新鲜科技</a></li>
             <li class="layui-nav-item"><a href="<?php echo url('/index/note/note'); ?>">生活笔记</a></li>
             <li class="layui-nav-item"><a href="<?php echo url('/index/message/message'); ?>">给我留言</a></li>
-            <li class="layui-nav-item"><a href="<?php echo url('/index/sponsor/sponsor'); ?>">赞助作者</a></li>
+            <!--<li class="layui-nav-item"><a href="<?php echo url('/index/sponsor/sponsor'); ?>">赞助作者</a></li>-->
             <li class="layui-nav-item"><a href="<?php echo url('/index/personal/personal'); ?>">个人中心</a></li>
             <li style="padding-top: 10px;float: right;color: black;margin-left: 232px;padding-right: 9px;" class="layui-input-inline">
                 <input type="text" name="title" style="width: 180px;float: left;" lay-verify="required" placeholder="请输入想要查找的内容..." class="layui-input">
@@ -105,6 +102,14 @@
     </script>
 </header>
 
-<h1 class="totle" style="background-color: red">
-    这是赞助作者页面
-</h1>
+<h1 class="totle h1" style="padding: 35px">感谢各位的支持！！!</h1>
+    <div class="row totle" style="width: 900px;margin-left: 440px;">
+        <div class="col-md-6" style="width: 400px;height: 100%;text-align: center">
+            <img src="/static/images/pay/ZhiFuBao.png" alt="支付宝">
+            <p class="h3" style="text-align: center">支付宝</p>
+        </div>
+        <div class="col-md-6" style="width: 400px;height: 100%;margin-left: 11%">
+            <img src="/static/images/pay/WeiXin.png" alt="微信">
+            <p class="h3" style="text-align: center">微信</p>
+        </div>
+    </div>

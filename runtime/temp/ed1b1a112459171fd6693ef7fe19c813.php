@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:49:"E:\BK/application/index\view\message\message.html";i:1522117309;s:47:"E:\BK\application\index\view\public\header.html";i:1522220536;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:49:"E:\BK/application/index\view\message\message.html";i:1522398219;s:47:"E:\BK\application\index\view\public\header.html";i:1522396907;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="/static/css/font-awesome.min.css"/>
     <script src="/static/layui.js" charset="utf-8"></script>
     <script src="/static/js/index.js" charset="utf-8"></script>
+    <script src="/static/js/message.js" charset="utf-8"></script>
     <!--<script src="/static/js/jquery.cookie.js" charset="utf-8"></script>-->
     <link rel="stylesheet" href="/static/css/skel-noscript.css"/>
     <link rel="stylesheet" href="/static/css/style.css"/>
@@ -26,10 +27,7 @@
     <link rel="stylesheet" href="/static/css/style-desktop.css"/>
     <link rel="stylesheet" href="/static/css/index.css" media="all">
     <link rel="stylesheet" href="/static/css/article.css"/>
-    <link rel="stylesheet" href="/static/css/note.css" type="text/css"/>
-
-
-
+    <!--<link rel="stylesheet" href="/static/css/Note.css"/>-->
 </head>
 <body>
 <!--上方的时间和头标题-->
@@ -46,9 +44,9 @@
             <li class="layui-nav-item"><a href="<?php echo url('/index/fresh/fresh'); ?>">新鲜科技</a></li>
             <li class="layui-nav-item"><a href="<?php echo url('/index/note/note'); ?>">生活笔记</a></li>
             <li class="layui-nav-item"><a href="<?php echo url('/index/message/message'); ?>">给我留言</a></li>
-            <li class="layui-nav-item"><a href="<?php echo url('/index/sponsor/sponsor'); ?>">赞助作者</a></li>
+            <!--<li class="layui-nav-item"><a href="<?php echo url('/index/sponsor/sponsor'); ?>">赞助作者</a></li>-->
             <li class="layui-nav-item"><a href="<?php echo url('/index/personal/personal'); ?>">个人中心</a></li>
-            <li style="padding-top: 10px;float: right;color: black;margin-left: 232px;padding-right: 9px;" class="layui-input-inline">
+            <li style="padding-top: 10px;float: right;color: black;margin-left: 326px;padding-right: 9px;" class="layui-input-inline">
                 <input type="text" name="title" style="width: 180px;float: left;" lay-verify="required" placeholder="请输入想要查找的内容..." class="layui-input">
                 <button class="layui-btn layui-btn-normal">搜索</button>
             </li>
@@ -105,6 +103,37 @@
     </script>
 </header>
 
-<h1 class="totle" style="background-color: red">
-    这是给我留言页面
-</h1>
+<link rel="stylesheet" type="text/css" href="/static/css/message.css">
+<div class="container totle">
+    <div class="commentbox">
+        <textarea cols="80" rows="50" placeholder="来说几句吧......" class="mytextarea" id="content"></textarea>
+        <div class="btn btn-info pull-right" id="comment">评论</div>
+    </div>
+    <div class="comment-list">
+
+    </div>
+</div>
+<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+<script src="/static/js/message.js" ></script>
+<script>
+    //初始化数据
+    var arr = [
+        {id:1,img:"/static/images/img.jpg",replyName:"帅大叔",beReplyName:"匿名",content:"同学聚会，看到当年追我的屌丝开着宝马车带着他老婆来了，他老婆是我隔壁宿舍的同班同学，心里后悔极了。",time:"2017-10-17 11:42:53",address:"深圳",osname:"",browse:"谷歌",replyBody:[]},
+        {id:2,img:"/static/images/img.jpg",replyName:"匿名",beReplyName:"",content:"到菜市场买菜，看到一个孩子在看摊，我问：“一只鸡多少钱？” 那孩子回答：“23。” 我又问：“两只鸡多少钱？” 孩子愣了一下，一时间没算过来，急中生智大吼一声：“一次只能买一只！”",time:"2017-10-17 11:42:53",address:"深圳",osname:"",browse:"谷歌",replyBody:[{id:3,img:"",replyName:"帅大叔",beReplyName:"匿名",content:"来啊，我们一起吃鸡",time:"2017-10-17 11:42:53",address:"",osname:"",browse:"谷歌"}]},
+        {id:3,img:"/static/images/img.jpg",replyName:"帅大叔",beReplyName:"匿名",content:"同学聚会，看到当年追我的屌丝开着宝马车带着他老婆来了，他老婆是我隔壁宿舍的同班同学，心里后悔极了。",time:"2017-10-17 11:42:53",address:"深圳",osname:"win10",browse:"谷歌",replyBody:[]}
+    ];
+    $(function(){
+        $(".comment-list").addCommentList({data:arr,add:""});
+        $("#comment").click(function(){
+            var obj = new Object();
+            obj.img="/static/images/img.jpg";
+            obj.replyName="匿名";
+            obj.content=$("#content").val();
+            obj.browse="深圳";
+            obj.osname="win10";
+            obj.replyBody="";
+            $(".comment-list").addCommentList({data:[],add:obj});
+        });
+    })
+
+</script>

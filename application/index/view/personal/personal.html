@@ -1,4 +1,110 @@
 {include file="public/header"}
-<h1 class="totle" style="background-color: red">
-    这是个人中心页面
-</h1>
+<div class="totle">
+    <div class="row " style="margin-left: 0px">
+        <div class="col-xl-6 well well-lg" style="width: 680px;height: 650px;">
+                <p class="h4" style="line-height: 26px">年龄，那是一种对时间的焦虑。张爱玲一句“出名要趁早”，害了不知多少人。人是靠价值相互认同的，而不是年龄；一个人要知道自己想要什么，才能做成事情。别着急，你还年轻，喜欢的事情大可以努力去做，没有钱途也没关系。毕竟，你还年轻啊！</p>
+            <p class="h4">李笑来在《把时间当作朋友》里写：我们总是对短期收益期望过高，却对长期收益期望过低。
+                他指英语，也说人生。说来说去，还是急。</p>
+            <p class="h4">这一代中国年轻人可能面临着某种吊诡的自我矛盾：一方面，我们是前所未有早衰的一代，“十八岁开始苍老”，二十岁开始怀旧，尽管仍在青春，“你爱谈天我爱笑”的时光竟成了一代人的集体乡愁；另一方面，我们拼命的想要向前奔跑，想要稳定、无虑的生活，想要拥抱住某种确定感，焦虑着，想要立即像三四十岁的人那样，车房不缺，事业成功。<br/>
+                你，你，你，真的享受年轻吗？为何你一边怀旧一边还在努力奔跑？<br/>
+                你，你，你，真的热爱冒险和漂泊吗？为什么将理想纳给稳定和房产证做投名状？<br/>
+                你，你，你，真的珍惜可能性吗？为何我看到你宁肯早衰也要拥抱“生活的终结”？<br/>
+                生活更美好的可能性，难道不在于这缓缓经历的一步步、默默感知的一天天，而在于未来的宏大勾画？</p>
+            <p class="h4">
+                我不知道自己最终要去哪，还在一边晃悠一边张望，走一步停一下，摸摸这个碰碰那个，试图去感知、观察、理解这个世界。新鲜好奇着呢。但我确定，我只会走自己想走的林荫道；我确定，我会像哈维尔说的那样，遵从自己的内心，活在真实里。
+            </p>
+        </div>
+        <div id="aboutme" class="col-xl-6 well well-lg site-doc-icon">
+            <h2 class="ab_title">关于我</h2>
+            <div id="img" class="blogerinfo-figure layui-anim layui-anim-rotate" data-anim="layui-anim-rotate">
+                <img src="__STATIC__/images/Absolutely.jpg" alt="Absolutely">
+            </div>
+            <div class="ab_con">
+                <p>网名：辣萝卜条儿 | 李鑫</p>
+                <p>职业：日常打怪兽 </p>
+                <p>爱好：洗澡、睡觉 </p>
+                <p>个人微信：a210825-</p>
+                <p>邮箱：lx8250@126.com</p>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    .h4{
+        line-height: 26px;
+    }
+    #img{
+        margin-left: 35%;
+    }
+    #aboutme {
+        background: #FFF;
+        border-radius: 10px;
+        overflow: hidden;
+        width: 343px;
+        height: 500px;
+        margin-left: 20px;
+        padding-left: 14px;
+        font-size: 16px;
+    }
+
+    .ab_title {
+        text-align: center;
+        position: relative;
+        margin: 20px;
+    }
+
+    .ab_title:before {
+        content: "";
+        width: 25%;
+        height: 2px;
+        background: #000;
+        position: absolute;
+        left: 0;
+        bottom: 8px
+    }
+
+    .ab_title:after {
+        content: "";
+        width: 25%;
+        height: 2px;
+        background: #000;
+        position: absolute;
+        right: 0;
+        bottom: 8px
+    }
+
+    .ab_con {
+        line-height: 30px;
+        padding: 10px;
+    }
+
+    .ab_con p {
+        background: #f6f6f6;
+        margin: 5px 0;
+        padding-left: 10px;
+        border-radius: 5px;
+        text-shadow: rgba(255, 255, 255, 0.3) 0px 1px 0px;
+    }
+
+    .avatar img {
+        width: 100px;
+        height: 100px
+    }
+</style>
+<script>
+    layui.use('jquery', function () {
+        var $ = layui.$;
+        //演示动画
+        $('.site-doc-icon .layui-anim').on('click', function () {
+            var othis = $(this), anim = othis.data('anim');
+            //停止循环
+            if (othis.hasClass('layui-anim-loop')) {
+                return othis.removeClass(anim);
+            }
+            othis.removeClass(anim);
+            setTimeout(function () {
+                othis.addClass(anim);
+            });
+        });
+    });
+</script>

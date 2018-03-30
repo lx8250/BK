@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:45:"E:\BK/application/index\view\fresh\fresh.html";i:1522225448;s:47:"E:\BK\application\index\view\public\header.html";i:1522226989;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:45:"E:\BK/application/index\view\fresh\fresh.html";i:1522303409;s:47:"E:\BK\application\index\view\public\header.html";i:1522379978;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,9 +27,6 @@
     <link rel="stylesheet" href="/static/css/index.css" media="all">
     <link rel="stylesheet" href="/static/css/article.css"/>
     <link rel="stylesheet" href="/static/css/Note.css"/>
-
-
-
 </head>
 <body>
 <!--上方的时间和头标题-->
@@ -46,7 +43,7 @@
             <li class="layui-nav-item"><a href="<?php echo url('/index/fresh/fresh'); ?>">新鲜科技</a></li>
             <li class="layui-nav-item"><a href="<?php echo url('/index/note/note'); ?>">生活笔记</a></li>
             <li class="layui-nav-item"><a href="<?php echo url('/index/message/message'); ?>">给我留言</a></li>
-            <li class="layui-nav-item"><a href="<?php echo url('/index/sponsor/sponsor'); ?>">赞助作者</a></li>
+            <!--<li class="layui-nav-item"><a href="<?php echo url('/index/sponsor/sponsor'); ?>">赞助作者</a></li>-->
             <li class="layui-nav-item"><a href="<?php echo url('/index/personal/personal'); ?>">个人中心</a></li>
             <li style="padding-top: 10px;float: right;color: black;margin-left: 232px;padding-right: 9px;" class="layui-input-inline">
                 <input type="text" name="title" style="width: 180px;float: left;" lay-verify="required" placeholder="请输入想要查找的内容..." class="layui-input">
@@ -107,14 +104,12 @@
 
 <div id="main-wrapper">
     <div class="container">
-
         <div id="main" style="padding-top: 0px;">
             <blockquote class="layui-elem-quote sitemap layui-breadcrumb shadow" style="border-left: 5px solid #6495Ed;margin-top: 0px;visibility: visible;margin-left: -23px;width: 1045px">
                 <a href="/" title="网站首页">网站首页</a>
                 <a><cite>新鲜科技</cite></a>
             </blockquote>
             <div class="row">
-
                 <div id="content" class="8u skel-cell-important" style="margin-left: 24px">
                     <div class="blog-body">
                         <div class="blog-container">
@@ -290,7 +285,6 @@
                                 </div>
                             </form>
                         </div>
-
                         <div class="article-category shadow">
                             <div class="article-category-title">分类导航</div>
                             <a href="../controller/search_category.php?page=1&amp;cate=C语言基础">C语言基础</a>
@@ -331,10 +325,8 @@
                                 <li><i class="fa-li fa fa-hand-o-right"></i><a href="detail.html">常用正则表达式</a></li>
                             </ul>
                         </div>
-
                         <!--右边悬浮 平板或手机设备显示-->
                         <div class="category-toggle"><i class="fa fa-chevron-left"></i></div>
-
                         <div class="clear"></div>
                     </div>
                 </div>
