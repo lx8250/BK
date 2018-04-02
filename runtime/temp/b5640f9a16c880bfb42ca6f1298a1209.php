@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:45:"E:\BK/application/index\view\index\index.html";i:1522309337;s:47:"E:\BK\application\index\view\public\header.html";i:1522381041;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:45:"E:\BK/application/index\view\index\index.html";i:1522309337;s:47:"E:\BK\application\index\view\public\header.html";i:1522396907;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,7 +27,7 @@
     <link rel="stylesheet" href="/static/css/style-desktop.css"/>
     <link rel="stylesheet" href="/static/css/index.css" media="all">
     <link rel="stylesheet" href="/static/css/article.css"/>
-    <link rel="stylesheet" href="/static/css/Note.css"/>
+    <!--<link rel="stylesheet" href="/static/css/Note.css"/>-->
 </head>
 <body>
 <!--上方的时间和头标题-->

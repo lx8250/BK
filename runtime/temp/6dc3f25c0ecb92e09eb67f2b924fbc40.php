@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:45:"E:\BK/application/index\view\fresh\fresh.html";i:1522303409;s:47:"E:\BK\application\index\view\public\header.html";i:1522379978;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:45:"E:\BK/application/index\view\fresh\fresh.html";i:1522303409;s:47:"E:\BK\application\index\view\public\header.html";i:1522396907;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="/static/css/font-awesome.min.css"/>
     <script src="/static/layui.js" charset="utf-8"></script>
     <script src="/static/js/index.js" charset="utf-8"></script>
+    <script src="/static/js/message.js" charset="utf-8"></script>
     <!--<script src="/static/js/jquery.cookie.js" charset="utf-8"></script>-->
     <link rel="stylesheet" href="/static/css/skel-noscript.css"/>
     <link rel="stylesheet" href="/static/css/style.css"/>
@@ -26,7 +27,7 @@
     <link rel="stylesheet" href="/static/css/style-desktop.css"/>
     <link rel="stylesheet" href="/static/css/index.css" media="all">
     <link rel="stylesheet" href="/static/css/article.css"/>
-    <link rel="stylesheet" href="/static/css/Note.css"/>
+    <!--<link rel="stylesheet" href="/static/css/Note.css"/>-->
 </head>
 <body>
 <!--上方的时间和头标题-->
@@ -45,7 +46,7 @@
             <li class="layui-nav-item"><a href="<?php echo url('/index/message/message'); ?>">给我留言</a></li>
             <!--<li class="layui-nav-item"><a href="<?php echo url('/index/sponsor/sponsor'); ?>">赞助作者</a></li>-->
             <li class="layui-nav-item"><a href="<?php echo url('/index/personal/personal'); ?>">个人中心</a></li>
-            <li style="padding-top: 10px;float: right;color: black;margin-left: 232px;padding-right: 9px;" class="layui-input-inline">
+            <li style="padding-top: 10px;float: right;color: black;margin-left: 326px;padding-right: 9px;" class="layui-input-inline">
                 <input type="text" name="title" style="width: 180px;float: left;" lay-verify="required" placeholder="请输入想要查找的内容..." class="layui-input">
                 <button class="layui-btn layui-btn-normal">搜索</button>
             </li>
