@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:45:"E:\BK/application/admin\view\index\index.html";i:1522743333;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:45:"E:\BK/application/admin\view\index\index.html";i:1522745070;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -140,7 +140,7 @@
         <!-- 首页统计 -->
         <div class="right_col" role="main">
             <!-- top tiles -->
-            <div class="row tile_count"  style="text-align: center">
+            <div class="row tile_count"  style="text-align: center;margin-top: 8%;padding-left: 160px">
                 <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
                     <span class="count_top"><i class="fa fa-user"></i> 用户总数</span>
                     <div class="count">2500</div>
@@ -164,7 +164,7 @@
             </div>
             <!-- /首页统计结束 -->
 
-            <div class="row"  style="text-align: center;margin-top: 17%">
+            <div class="row"  style="text-align: center;margin-top: 11%">
                 <h1>博客后台管理中心！</h1>
             </div>
             <br />
