@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:45:"E:\BK/application/index\view\index\index.html";i:1522309337;s:47:"E:\BK\application\index\view\public\header.html";i:1522396907;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:45:"E:\BK/application/index\view\index\index.html";i:1522309337;s:47:"E:\BK\application\index\view\public\header.html";i:1522737985;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +19,7 @@
     <script src="/static/layui.js" charset="utf-8"></script>
     <script src="/static/js/index.js" charset="utf-8"></script>
     <script src="/static/js/message.js" charset="utf-8"></script>
-    <!--<script src="/static/js/jquery.cookie.js" charset="utf-8"></script>-->
+    <!--<script src="/static/js/js.cookie.js" charset="utf-8"></script>-->
     <link rel="stylesheet" href="/static/css/skel-noscript.css"/>
     <link rel="stylesheet" href="/static/css/style.css"/>
     <link rel="stylesheet" href="/static/css/home.css">
@@ -32,13 +32,13 @@
 <body>
 <!--上方的时间和头标题-->
 <header>
-    <div class="totle row">
+    <div class="totle row header">
         <ul style="height: 30px;padding-top: 7px;width: 1040px">
             <li class="layui-nav-item" style="float: left;margin-left: -40px">Hi,你好，现在是：<?php echo date('Y年-m月-d日 H:m'); ?>&nbsp;&nbsp;&nbsp;星期<?php echo date('N'); ?>&nbsp;&nbsp;&nbsp;本年的第<?php echo date('W'); ?>周</li>
             <li style="float: right">您好！欢迎访问李鑫的个人博客</li>
         </ul>
     </div>
-    <div class="totle row">
+    <div class="totle row header">
         <ul class="layui-nav layui-bg-cyan" style="padding-top: 0px">
             <li class="layui-nav-item" style="margin-left: -40px"><a href="<?php echo url('/index/index/index'); ?>">首页</a></li>
             <li class="layui-nav-item"><a href="<?php echo url('/index/fresh/fresh'); ?>">新鲜科技</a></li>

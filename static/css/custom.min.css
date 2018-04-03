@@ -3832,7 +3832,7 @@ a.hiddenanchor {
     max-width: 100%
 }
 
-.login_form, .registration_form, .pass_form{
+.login_form, .registration_form, .pass_form {
     position: absolute;
     top: 0;
     width: 100%
@@ -3844,39 +3844,23 @@ a.hiddenanchor {
     width: 100%
 }
 
-.login_form {
-    z-index: 22
-}
-
-#signin:target ~ .login_wrapper .login_form, #signup:target ~ .login_wrapper .registration_form {
-    z-index: 22;
-    animation-name: fadeInLeft;
-    animation-delay: .1s
-}
-
-#signin:target ~ .login_wrapper .registration_form, #signup:target ~ .login_wrapper .login_form{
-    animation-name: fadeOutLeft
-}
-
-.login_form, .registration_form {
-    position: absolute;
-    top: 0;
-    width: 100%
-}
-/*-------------------------------------------*/
 .pass_form {
-    z-index: 21;
+    z-index: 20;
     opacity: 0;
-    width: 100%
+    width: 100%;
 }
 
-#signin:target ~ .login_wrapper .pass_form, #signup:target ~ .login_wrapper .registration_form {
+.login_form {
+    z-index: 22;
+}
+
+#signin:target ~ .login_wrapper .login_form, #signup:target ~ .login_wrapper .registration_form, #signout:target ~ .login_wrapper .pass_form {
     z-index: 22;
     animation-name: fadeInLeft;
     animation-delay: .1s
 }
 
-#signin:target ~ .login_wrapper .registration_form, #signup:target ~ .login_wrapper .pass_form{
+#signin:target ~ .login_wrapper .registration_form, .login_wrapper .pass_form, #signup:target ~ .login_wrapper .login_form, #signout:target ~ .login_wrapper .login_form , .login_wrapper .registration_form{
     animation-name: fadeOutLeft
 }
 

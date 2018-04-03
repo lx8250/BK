@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:45:"E:\BK/application/admin\view\login\login.html";i:1522660879;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:45:"E:\BK/application/admin\view\login\login.html";i:1522742195;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,8 +27,10 @@
 <div>
     <a class="hiddenanchor" id="signup"></a>
     <a class="hiddenanchor" id="signin"></a>
+    <a class="hiddenanchor" id="signout"></a>
 
     <div class="login_wrapper" style="margin-top: 150px">
+        <!--用户登录-->
         <div class="animate form login_form">
             <section class="login_content">
                 <form>
@@ -41,7 +43,7 @@
                     </div>
                     <div>
                         <a class="btn btn-default submit" href="<?php echo url('/admin/index/index'); ?>">登录</a>
-                        <a class="reset_pass" href="#signin">忘记密码</a>
+                        <a class="reset_pass to_register" href="#signout">忘记密码</a>
                     </div>
                     <div class="clearfix"></div>
                     <div class="separator">
@@ -55,7 +57,7 @@
                 </form>
             </section>
         </div>
-
+<!--创建用户-->
         <div id="register" class="animate form registration_form">
             <section class="login_content">
                 <form>
@@ -86,7 +88,8 @@
                 </form>
             </section>
         </div>
-        <div id="reset_pass" class="animate form pass_from">
+        <!--修改密码-->
+        <div id="reset_pass" class="animate form pass_form">
             <section class="login_content">
                 <form>
                     <h1>修改密码</h1>
@@ -97,17 +100,15 @@
                         <input type="email" class="form-control" placeholder="邮箱" required="" />
                     </div>
                     <div>
-                        <input type="password" class="form-control" placeholder="密码" required="" />
-                    </div>
-                    <div>
                         <a class="btn btn-default submit" href="<?php echo url('/admin/index/index'); ?>">提交</a>
                     </div>
 
                     <div class="clearfix"></div>
 
                     <div class="separator">
-                        <p class="change_link">已有用户名 ?
+                        <p class="change_link">
                             <a href="#signin" class="to_register"> 登录 </a>
+                            <a href="#signup" class="to_register"> 注册 </a>
                         </p>
 
                         <div class="clearfix"></div>

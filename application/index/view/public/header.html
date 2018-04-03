@@ -18,7 +18,7 @@
     <script src="__STATIC__/layui.js" charset="utf-8"></script>
     <script src="__STATIC__/js/index.js" charset="utf-8"></script>
     <script src="__STATIC__/js/message.js" charset="utf-8"></script>
-    <!--<script src="__STATIC__/js/jquery.cookie.js" charset="utf-8"></script>-->
+    <!--<script src="__STATIC__/js/js.cookie.js" charset="utf-8"></script>-->
     <link rel="stylesheet" href="__STATIC__/css/skel-noscript.css"/>
     <link rel="stylesheet" href="__STATIC__/css/style.css"/>
     <link rel="stylesheet" href="__STATIC__/css/home.css">
@@ -31,13 +31,13 @@
 <body>
 <!--上方的时间和头标题-->
 <header>
-    <div class="totle row">
+    <div class="totle row header">
         <ul style="height: 30px;padding-top: 7px;width: 1040px">
             <li class="layui-nav-item" style="float: left;margin-left: -40px">Hi,你好，现在是：{:date('Y年-m月-d日 H:m')}&nbsp;&nbsp;&nbsp;星期{:date('N')}&nbsp;&nbsp;&nbsp;本年的第{:date('W')}周</li>
             <li style="float: right">您好！欢迎访问李鑫的个人博客</li>
         </ul>
     </div>
-    <div class="totle row">
+    <div class="totle row header">
         <ul class="layui-nav layui-bg-cyan" style="padding-top: 0px">
             <li class="layui-nav-item" style="margin-left: -40px"><a href="{:url('/index/index/index')}">首页</a></li>
             <li class="layui-nav-item"><a href="{:url('/index/fresh/fresh')}">新鲜科技</a></li>
