@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:45:"E:\BK/application/admin\view\login\login.html";i:1522742195;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:45:"E:\BK/application/admin\view\login\login.html";i:1522828052;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,16 +33,17 @@
         <!--用户登录-->
         <div class="animate form login_form">
             <section class="login_content">
-                <form>
+                <form action="<?php echo url('/admin/login/login'); ?>" method="post" id="subform">
+                    <input type="hidden" name="op" value="login">
                     <h1>用户登录</h1>
                     <div>
-                        <input type="text" class="form-control" placeholder="用户名" required="" />
+                        <input type="text" name="username" class="form-control" placeholder="用户名" required="" />
                     </div>
                     <div>
-                        <input type="password" class="form-control" placeholder="密码" required="" />
+                        <input type="password" class="form-control" name="password" placeholder="密码" required="" />
                     </div>
                     <div>
-                        <a class="btn btn-default submit" href="<?php echo url('/admin/index/index'); ?>">登录</a>
+                        <a class="btn btn-default submit" href="" onclick="document.getElementById('subform').submit();return false;">登录</a>
                         <a class="reset_pass to_register" href="#signout">忘记密码</a>
                     </div>
                     <div class="clearfix"></div>

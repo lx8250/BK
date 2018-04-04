@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:45:"E:\BK/application/admin\view\index\index.html";i:1522810932;s:47:"E:\BK\application\admin\view\public\header.html";i:1522814093;s:47:"E:\BK\application\admin\view\public\footer.html";i:1522823038;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:45:"E:\BK/application/admin\view\daily\daily.html";i:1522823070;s:47:"E:\BK\application\admin\view\public\header.html";i:1522814093;s:47:"E:\BK\application\admin\view\public\footer.html";i:1522823038;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -117,37 +117,12 @@
             </div>
         </div>
         <!--中部上方栏结束-->
-<?php if($op=='index'): ?>
+<?php if($name=='daily'): ?>
 <div class="right_col" role="main">
-    <!-- top tiles -->
-    <div class="row tile_count"  style="text-align: center;margin-top: 8%;padding-left: 160px">
-        <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-            <span class="count_top"><i class="fa fa-user"></i> 用户总数</span>
-            <div class="count">2500</div>
-        </div>
-        <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-            <span class="count_top"><i class="fa fa-clock-o"></i> 今日新增用户</span>
-            <div class="count">12</div>
-        </div>
-        <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-            <span class="count_top"><i class="fa fa-user"></i> 今日浏览量</span>
-            <div class="count green">2500</div>
-        </div>
-        <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-            <span class="count_top"><i class="fa fa-user"></i> 总浏览量</span>
-            <div class="count">4567</div>
-        </div>
-        <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-            <span class="count_top"><i class="fa fa-user"></i> 今日用户留言</span>
-            <div class="count">433</div>
-        </div>
+    <div class="row"  style="text-align: center;margin-top: 8%;padding-left: 160px">
+        Hello
     </div>
-    <!-- /首页统计结束 -->
-
-    <div class="row"  style="text-align: center;margin-top: 11%">
-        <h1>博客后台管理中心！</h1>
-    </div>
-    <br />
+    <br/>
 </div>
 <?php endif; ?>
 <!-- 首页尾部 -->
