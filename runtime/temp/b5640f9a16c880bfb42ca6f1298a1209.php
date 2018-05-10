@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:45:"E:\BK/application/index\view\index\index.html";i:1522309337;s:47:"E:\BK\application\index\view\public\header.html";i:1522737985;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:45:"E:\BK/application/index\view\index\index.html";i:1522309337;s:47:"E:\BK\application\index\view\public\header.html";i:1523172564;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +6,14 @@
     <title>李鑫个人博客</title>
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <!--关键字-->
+    <meta name="keywords" content="李鑫,博客,个人博客">
+    <!--作者-->
+    <meta name="author" content="李鑫">
+    <!--生产者-->
+    <meta name="generator" content="lixin">
+    <!--描述-->
+    <meta name="description" content="李鑫的个人博客，仅仅用于了解自己的屌丝级入门程序员">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <script src="/static/js/jquery.min.js" charset="utf-8"></script>
     <link rel="stylesheet" href="/static/css/layui.css" media="all">
