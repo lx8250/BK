@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50553
 File Encoding         : 65001
 
-Date: 2018-04-04 14:45:56
+Date: 2018-05-19 11:29:56
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -56,6 +56,23 @@ CREATE TABLE `bk_ad` (
 -- ----------------------------
 -- Records of bk_ad
 -- ----------------------------
+
+-- ----------------------------
+-- Table structure for `bk_admin`
+-- ----------------------------
+DROP TABLE IF EXISTS `bk_admin`;
+CREATE TABLE `bk_admin` (
+  `user_id` mediumint(8) NOT NULL AUTO_INCREMENT COMMENT '用户ID',
+  `user_name` varchar(32) NOT NULL COMMENT '用户名',
+  `user_pwd` varchar(32) NOT NULL COMMENT '用户密码',
+  `user_email` varchar(64) NOT NULL COMMENT '用户EMAIL地址',
+  PRIMARY KEY (`user_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of bk_admin
+-- ----------------------------
+INSERT INTO `bk_admin` VALUES ('3', 'admin', 'e10adc3949ba59abbe56e057f20f883e', '123456@123.com');
 
 -- ----------------------------
 -- Table structure for `bk_article`
@@ -278,37 +295,17 @@ CREATE TABLE `bk_system_message` (
 -- ----------------------------
 DROP TABLE IF EXISTS `bk_user`;
 CREATE TABLE `bk_user` (
-  `user_id` mediumint(8) NOT NULL AUTO_INCREMENT COMMENT '用户ID',
-  `group_id` mediumint(8) NOT NULL COMMENT '用户组ID',
-  `user_name` varchar(32) NOT NULL COMMENT '用户名',
-  `user_pwd` varchar(32) NOT NULL COMMENT '用户密码',
-  `user_phone` int(12) NOT NULL COMMENT '用户手机号码',
-  `user_sex` varchar(6) NOT NULL COMMENT '用户性别',
-  `user_qq` mediumint(9) NOT NULL COMMENT '用户QQ号码',
-  `user_email` varchar(64) NOT NULL COMMENT '用户EMAIL地址',
-  `user_address` varchar(255) NOT NULL COMMENT '用户地址',
-  `user_mark` mediumint(9) NOT NULL COMMENT '用户积分',
-  `user_rank_id` tinyint(3) NOT NULL COMMENT '用户等级',
-  `user_last_login_ip` varchar(15) NOT NULL COMMENT '用户上一次登录IP地址',
-  `user_birthday` int(13) NOT NULL COMMENT '用户生日',
-  `user_description` varchar(255) NOT NULL COMMENT '自我描述',
-  `user_image_url` varchar(255) NOT NULL COMMENT '用户头像存储路径',
-  `user_school` varchar(255) NOT NULL COMMENT '毕业学校',
-  `user_register_time` int(13) NOT NULL COMMENT '用户注册时间',
-  `user_register_ip` varchar(15) NOT NULL COMMENT '用户注册时IP地址',
-  `user_last_update_time` int(13) NOT NULL COMMENT '用户上次更新博客时间',
-  `user_weibo` varchar(255) NOT NULL COMMENT '用户微博',
-  `user_blood_type` char(3) NOT NULL COMMENT '用户血型',
-  `user_says` varchar(255) NOT NULL COMMENT '用户语录',
-  `user_lock` tinyint(3) NOT NULL COMMENT '是否锁定，0为不锁定，1为锁定',
-  `user_freeze` tinyint(3) NOT NULL COMMENT '是否冻结，0为不冻结，1为冻结',
-  `user_power` varchar(255) NOT NULL COMMENT '拥有权限',
+  `user_id` int(11) NOT NULL,
+  `user_name` varchar(255) NOT NULL,
+  `user_pwd` varchar(255) NOT NULL,
+  `user_email` varchar(255) NOT NULL,
   PRIMARY KEY (`user_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of bk_user
 -- ----------------------------
+INSERT INTO `bk_user` VALUES ('0', 'admin', 'e10adc3949ba59abbe56e057f20f883e', '123456@123.com');
 
 -- ----------------------------
 -- Table structure for `bk_user_attention`
