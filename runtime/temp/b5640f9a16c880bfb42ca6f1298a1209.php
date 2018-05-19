@@ -1,5 +1,6 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:45:"E:\BK/application/index\view\index\index.html";i:1522309337;s:47:"E:\BK\application\index\view\public\header.html";i:1523172564;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:45:"E:\BK/application/index\view\index\index.html";i:1526636885;s:47:"E:\BK\application\index\view\public\header.html";i:1526696692;}*/ ?>
 <!DOCTYPE html>
+<?php session_start(); ?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -40,10 +41,12 @@
 <body>
 <!--上方的时间和头标题-->
 <header>
-    <div class="totle row header">
+    <div class="totle row">
         <ul style="height: 30px;padding-top: 7px;width: 1040px">
             <li class="layui-nav-item" style="float: left;margin-left: -40px">Hi,你好，现在是：<?php echo date('Y年-m月-d日 H:m'); ?>&nbsp;&nbsp;&nbsp;星期<?php echo date('N'); ?>&nbsp;&nbsp;&nbsp;本年的第<?php echo date('W'); ?>周</li>
-            <li style="float: right">您好！欢迎访问李鑫的个人博客</li>
+            <li style="float: right">您好！欢迎<?php if($_SESSION['user_name']): ?><a style="color: #007DDB;text-decoration: none" href="javascript:;"><?php echo $_SESSION['user_name']; ?></a><?php endif; ?>访问李鑫的个人博客&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="<?php echo url('/index/login/login'); ?>">
+                    <?php if($_SESSION['user_name']==''): ?>登录或注册<?php endif; ?></a></li>
         </ul>
     </div>
     <div class="totle row header">
@@ -111,21 +114,23 @@
     </script>
 </header>
 
-<div class="totle col-xs-7" style="width: 1080px;margin-left: 19%">
-    <div class="layui-carousel" id="test1" lay-filter="test1">
-        <div carousel-item="" style="margin-left: 5px">
-            <div><img src="/static/images/lunbo/1.png"></div>
-            <div><img src="/static/images/lunbo/2.png"></div>
+<div class="totle">
+    <div class="row">
+        <div class="col-xs-7" style="width: 1093px;">
+            <div class="layui-carousel" id="test1" lay-filter="test1">
+                <div carousel-item="">
+                    <div><img src="/static/images/lunbo/1.png"></div>
+                    <div><img src="/static/images/lunbo/2.png"></div>
+                </div>
+            </div>
+            <div id="test2" class="col-xs-5">
+                <p>毕竟不是作家，写不出那么好的文章。--因为没有丰富阅历和经验！</p>
+            </div>
         </div>
     </div>
-    <div id="test2" class="col-xs-5">
-        <p>毕竟不是作家，写不出那么好的文章。--因为没有丰富阅历和经验！</p>
-    </div>
-</div>
-<div id="main" class="totle">
-    <div class="row">
-        <!-- Content -->
-        <div id="content" class="8u skel-cell-important" style="width: 650px;margin-left: 10px">
+<div class="row" id="wenzhang">
+    <div class="well well-lg" style="margin-top: 20px;width: 640px">
+        <div class="col-xl-7"  style="margin-top: -50px;width: 586px">
             <div class="article shadow">
                 <div class="article-left">
                     <img src="/static/images/Z.jpg" alt="" width="150px" height="116px">
@@ -244,11 +249,12 @@
                     <li><a href="javascript:void(0)">尾页</a></li>
                 </ul>
             </div>
-
         </div>
-        <div id="sidebar" class="4u" style="width: 403px">
+    </div>
+    <div class="well well-lg" style="width: 382px;margin-top: 20px;margin-left: 20px">
+        <div id="sidebar" class="col-xl-6 4u" style="width: 326px;margin-top: -50px">
             <div class="blog-main-right">
-                <div class="blogerinfo shadow" style="width: 380px;float: right;">
+                <div class="blogerinfo shadow" style="width: 370px;float: right;">
                     <div class="blogerinfo-figure">
                         <img src="/static/images/Absolutely.jpg" alt="Absolutely">
                     </div>
@@ -257,18 +263,24 @@
                     <p class="blogerinfo-location"><i class="fa fa-location-arrow"></i>&nbsp;河南 - 洛阳</p>
                     <hr>
                     <div class="blogerinfo-contact">
-                        <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=1372470407&amp;site=qq&amp;menu=yes" title="QQ交流"><i class="fa fa-qq fa-2x"></i></a>
+                        <a target="_blank"
+                           href="http://wpa.qq.com/msgrd?v=3&amp;uin=1372470407&amp;site=qq&amp;menu=yes"
+                           title="QQ交流"><i class="fa fa-qq fa-2x"></i></a>
                         <!--QQ邮箱的模板-->
                         <!--<a target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=TiInNCYnOSsnfXx9DighNiMvJyJgLSEj" title="给我写信"><i class="fa fa-envelope fa-2x"></i></a>-->
-                        <a target="_blank" href="Mailto:lx8250@126.com?CC=lx8250@126.com&BCC=lx8250@126.com&Subject=Hello&Body=你好" title="给我写信"><i class="fa fa-envelope fa-2x"></i></a>
-                        <a target="_blank" title="新浪微博" href="javascript:layer.msg('转到你的微博主页')"><i class="fa fa-weibo fa-2x"></i></a>
-                        <a target="_blank" title="码云" href="javascript:layer.msg('转到你的github主页')"><i class="fa fa-git fa-2x"></i></a>
+                        <a target="_blank"
+                           href="Mailto:lx8250@126.com?CC=lx8250@126.com&BCC=lx8250@126.com&Subject=Hello&Body=你好"
+                           title="给我写信"><i class="fa fa-envelope fa-2x"></i></a>
+                        <a target="_blank" title="新浪微博" href="javascript:layer.msg('转到你的微博主页')"><i
+                                class="fa fa-weibo fa-2x"></i></a>
+                        <a target="_blank" title="码云" href="javascript:layer.msg('转到你的github主页')"><i
+                                class="fa fa-git fa-2x"></i></a>
                     </div>
                 </div>
             </div>
         </div>
         <div class="blog-module shadow" id="shadow">
-            <div class="blog-module-title">热文排行</div>
+            <div class="blog-module-title" style="margin-top: -20px">热文排行</div>
             <ul class="fa-ul blog-module-ul">
                 <li><i class="fa-li fa fa-hand-o-right"></i><a href="javascript:;">羊脂球</a></li>
                 <li><i class="fa-li fa fa-hand-o-right"></i><a href="javascript:;">凡卡</a></li>
@@ -282,4 +294,6 @@
         </div>
     </div>
 </div>
+</div>
+
 

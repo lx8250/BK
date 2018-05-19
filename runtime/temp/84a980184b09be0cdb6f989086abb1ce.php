@@ -1,5 +1,6 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:51:"E:\BK/application/index\view\personal\personal.html";i:1522306880;s:47:"E:\BK\application\index\view\public\header.html";i:1523172564;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:51:"E:\BK/application/index\view\personal\personal.html";i:1526647341;s:47:"E:\BK\application\index\view\public\header.html";i:1526692240;}*/ ?>
 <!DOCTYPE html>
+<?php session_start(); ?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -40,10 +41,12 @@
 <body>
 <!--上方的时间和头标题-->
 <header>
-    <div class="totle row header">
+    <div class="totle row">
         <ul style="height: 30px;padding-top: 7px;width: 1040px">
             <li class="layui-nav-item" style="float: left;margin-left: -40px">Hi,你好，现在是：<?php echo date('Y年-m月-d日 H:m'); ?>&nbsp;&nbsp;&nbsp;星期<?php echo date('N'); ?>&nbsp;&nbsp;&nbsp;本年的第<?php echo date('W'); ?>周</li>
-            <li style="float: right">您好！欢迎访问李鑫的个人博客</li>
+            <li style="float: right">您好！欢迎<?php if($_SESSION['user_name']): ?><?php echo $_SESSION['user_name']; endif; ?>访问李鑫的个人博客&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="<?php echo url('/index/login/login'); ?>">
+                    <?php if($_SESSION['user_name']==''): ?>登录或注册<?php endif; ?></a></li>
         </ul>
     </div>
     <div class="totle row header">
@@ -112,7 +115,7 @@
 </header>
 
 <div class="totle">
-    <div class="row " style="margin-left: 0px">
+    <div class="row" style="margin-left: 0px">
         <div class="col-xl-6 well well-lg" style="width: 680px;height: 650px;">
                 <p class="h4" style="line-height: 26px">年龄，那是一种对时间的焦虑。张爱玲一句“出名要趁早”，害了不知多少人。人是靠价值相互认同的，而不是年龄；一个人要知道自己想要什么，才能做成事情。别着急，你还年轻，喜欢的事情大可以努力去做，没有钱途也没关系。毕竟，你还年轻啊！</p>
             <p class="h4">李笑来在《把时间当作朋友》里写：我们总是对短期收益期望过高，却对长期收益期望过低。

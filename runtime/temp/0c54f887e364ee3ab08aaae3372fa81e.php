@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:45:"E:\BK/application/admin\view\index\index.html";i:1522810932;s:47:"E:\BK\application\admin\view\public\header.html";i:1522814093;s:47:"E:\BK\application\admin\view\public\footer.html";i:1522823038;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:45:"E:\BK/application/admin\view\index\index.html";i:1526694218;s:47:"E:\BK\application\admin\view\public\header.html";i:1526694470;s:47:"E:\BK\application\admin\view\public\footer.html";i:1522823038;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -104,7 +104,7 @@
 
                     <ul class="nav navbar-nav navbar-right">
                         <li class="">
-                            <a href="<?php echo url('/admin/login/login'); ?>" class="user-profile dropdown-toggle" aria-expanded="false">
+                            <a href="<?php echo url('/admin/login/logout'); ?>" class="user-profile dropdown-toggle" aria-expanded="false">
                                 <img src="/static/houtai/images/img.jpg" title="lixin">
                                 <i class="fa fa-sign-out pull-right" style="margin-top: 8px"></i>退出
                             </a>
@@ -117,7 +117,6 @@
             </div>
         </div>
         <!--中部上方栏结束-->
-<?php if($op=='index'): ?>
 <div class="right_col" role="main">
     <!-- top tiles -->
     <div class="row tile_count"  style="text-align: center;margin-top: 8%;padding-left: 160px">
@@ -149,7 +148,6 @@
     </div>
     <br />
 </div>
-<?php endif; ?>
 <!-- 首页尾部 -->
 <footer>
     <div class="pull-right">

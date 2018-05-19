@@ -1,5 +1,6 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:49:"E:\BK/application/index\view\message\message.html";i:1522398219;s:47:"E:\BK\application\index\view\public\header.html";i:1523172564;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:49:"E:\BK/application/index\view\message\message.html";i:1526647925;s:47:"E:\BK\application\index\view\public\header.html";i:1526696692;}*/ ?>
 <!DOCTYPE html>
+<?php session_start(); ?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -40,10 +41,12 @@
 <body>
 <!--上方的时间和头标题-->
 <header>
-    <div class="totle row header">
+    <div class="totle row">
         <ul style="height: 30px;padding-top: 7px;width: 1040px">
             <li class="layui-nav-item" style="float: left;margin-left: -40px">Hi,你好，现在是：<?php echo date('Y年-m月-d日 H:m'); ?>&nbsp;&nbsp;&nbsp;星期<?php echo date('N'); ?>&nbsp;&nbsp;&nbsp;本年的第<?php echo date('W'); ?>周</li>
-            <li style="float: right">您好！欢迎访问李鑫的个人博客</li>
+            <li style="float: right">您好！欢迎<?php if($_SESSION['user_name']): ?><a style="color: #007DDB;text-decoration: none" href="javascript:;"><?php echo $_SESSION['user_name']; ?></a><?php endif; ?>访问李鑫的个人博客&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="<?php echo url('/index/login/login'); ?>">
+                    <?php if($_SESSION['user_name']==''): ?>登录或注册<?php endif; ?></a></li>
         </ul>
     </div>
     <div class="totle row header">
@@ -111,37 +114,79 @@
     </script>
 </header>
 
-<link rel="stylesheet" type="text/css" href="/static/css/message.css">
-<div class="container totle">
-    <div class="commentbox">
-        <textarea cols="80" rows="50" placeholder="来说几句吧......" class="mytextarea" id="content"></textarea>
-        <div class="btn btn-info pull-right" id="comment">评论</div>
-    </div>
-    <div class="comment-list">
-
+<div class="totle">
+    <div class="row">
+        <div class="col-xl-6" style="width: 730px;height: 650px;float: left">
+            <textarea rows="15" style="margin-top: 20px;width: 100%" placeholder="欢迎讨论..."></textarea>
+            <br/><br/>
+            <button type="button" class="btn btn-info">点击留言</button>
+        </div>
+        <div id="aboutme" class="col-xl-6 well well-lg site-doc-icon">
+            <h2 class="ab_title">精选留言</h2>
+            <div class="ab_con">
+                <p>你好世界</p>
+                <p>你好世界</p>
+                <p>你好世界</p>
+                <p>你好世界</p>
+                <p>你好世界</p>
+            </div>
+        </div>
     </div>
 </div>
-<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
-<script src="/static/js/message.js" ></script>
-<script>
-    //初始化数据
-    var arr = [
-        {id:1,img:"/static/images/img.jpg",replyName:"帅大叔",beReplyName:"匿名",content:"同学聚会，看到当年追我的屌丝开着宝马车带着他老婆来了，他老婆是我隔壁宿舍的同班同学，心里后悔极了。",time:"2017-10-17 11:42:53",address:"深圳",osname:"",browse:"谷歌",replyBody:[]},
-        {id:2,img:"/static/images/img.jpg",replyName:"匿名",beReplyName:"",content:"到菜市场买菜，看到一个孩子在看摊，我问：“一只鸡多少钱？” 那孩子回答：“23。” 我又问：“两只鸡多少钱？” 孩子愣了一下，一时间没算过来，急中生智大吼一声：“一次只能买一只！”",time:"2017-10-17 11:42:53",address:"深圳",osname:"",browse:"谷歌",replyBody:[{id:3,img:"",replyName:"帅大叔",beReplyName:"匿名",content:"来啊，我们一起吃鸡",time:"2017-10-17 11:42:53",address:"",osname:"",browse:"谷歌"}]},
-        {id:3,img:"/static/images/img.jpg",replyName:"帅大叔",beReplyName:"匿名",content:"同学聚会，看到当年追我的屌丝开着宝马车带着他老婆来了，他老婆是我隔壁宿舍的同班同学，心里后悔极了。",time:"2017-10-17 11:42:53",address:"深圳",osname:"win10",browse:"谷歌",replyBody:[]}
-    ];
-    $(function(){
-        $(".comment-list").addCommentList({data:arr,add:""});
-        $("#comment").click(function(){
-            var obj = new Object();
-            obj.img="/static/images/img.jpg";
-            obj.replyName="匿名";
-            obj.content=$("#content").val();
-            obj.browse="深圳";
-            obj.osname="win10";
-            obj.replyBody="";
-            $(".comment-list").addCommentList({data:[],add:obj});
-        });
-    })
+<style>
+    #aboutme {
+        background: #FFF;
+        border-radius: 10px;
+        overflow: hidden;
+        width: 343px;
+        height: 600px;
+        margin-left: 20px;
+        padding-left: 14px;
+        font-size: 16px;
+        margin-top: 20px;
+    }
 
-</script>
+    .ab_title {
+        text-align: center;
+        position: relative;
+        margin: 20px;
+    }
+
+    .ab_title:before {
+        content: "";
+        width: 25%;
+        height: 2px;
+        background: #000;
+        position: absolute;
+        left: 0;
+        bottom: 8px
+    }
+
+    .ab_title:after {
+        content: "";
+        width: 25%;
+        height: 2px;
+        background: #000;
+        position: absolute;
+        right: 0;
+        bottom: 8px
+    }
+
+    .ab_con {
+        line-height: 30px;
+        padding: 10px;
+    }
+
+    .ab_con p {
+        background: #f6f6f6;
+        margin: 5px 0;
+        padding-left: 10px;
+        border-radius: 5px;
+        text-shadow: rgba(255, 255, 255, 0.3) 0px 1px 0px;
+    }
+
+    .avatar img {
+        width: 100px;
+        height: 100px
+    }
+</style>

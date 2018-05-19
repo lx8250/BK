@@ -3,14 +3,6 @@
     margin-left: 20%;
     margin-right: 25%;
 }
-#testone{
-background-color: red;
-    padding-top: 10px;
-    float: right;
-    color: black;
-    margin-left: 232px;
-    padding-right: 9px;
-}
 /*热门排行和热门推荐下方的区域*/
 .totle1{
     margin-left: 20%;
@@ -22,16 +14,13 @@ background-color: red;
 }
 #test1{
     float: left;
-    margin-top: 10px;
 }
 #test2{
     float: right;
-    margin-top: 10px;
     background-image:url("/static/images/Z.jpg");
     background-repeat: no-repeat;
     width: 382px;
     height: 272px;
-
 }
 #test2 p{
     margin-top: 100px;
@@ -44,6 +33,11 @@ background-color: red;
     height: 120px;
     font-weight: 500;
     font-family: \\5B8B\4F53;
+}
+#wenzhang{
+    width: 1046px;
+    height: 1041px;
+    margin-left: 0px;
 }
 /*回到顶部*/
 p#back-to-top{
@@ -73,7 +67,6 @@ p#back-to-top a{
     height: 330px;
     float: right;
 }
-
 
 
 

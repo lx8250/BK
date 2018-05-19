@@ -4,10 +4,10 @@
 /* Basic                                                                         */
 /*********************************************************************************/
 #shadow {
-    width: 380px;
-    height: 330px;
+    width: 367px;
+    height: 350px;
     float: right;
-    margin-right: 31px;
+    margin-right: 4px;
 }
 #shadow,input{
     font-family: 'Roboto Condensed', sans-serif;

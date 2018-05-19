@@ -77,12 +77,9 @@
 		.row + .row > * {
 			padding-top: 50px;
 		}
-
-		.row {
+		.row{
 			margin-left: -50px;
-			width: 1096px;
 		}
-
 	/* Rows */
 
 		.row:after {
