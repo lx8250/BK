@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:36:"E:\BK\thinkphp\tpl\dispatch_jump.tpl";i:1521192487;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:36:"E:\BK\thinkphp\tpl\dispatch_jump.tpl";i:1526866420;}*/ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -19,10 +19,10 @@
 <body>
     <div class="system-message">
         <?php switch ($code) {case 1:?>
-            <h1>:)</h1>
+            <h1>╮(‵▽′)╭</h1>
             <p class="success"><?php echo(strip_tags($msg));?></p>
             <?php break;case 0:?>
-            <h1>:(</h1>
+            <h1>(╯︵╰)</h1>
             <p class="error"><?php echo(strip_tags($msg));?></p>
             <?php break;} ?>
         <p class="detail"></p>

@@ -10,7 +10,6 @@ class Login extends Controller
     {
         $name = login::test_input(input('username'));
         $password = login::test_input(input('password'));
-        $repass = login::test_input(input('repass'));
         $email = login::test_input(input('email'));
         //用户登录
         if (input('op') == 'login') {
@@ -22,8 +21,8 @@ class Login extends Controller
             if (empty($temp)) {
                 $this->error('用户名或密码错误', '/admin/login/login');
             }
-            Session::set('admin_name', $name,3600);
-            Session::set('admin_pwd', $password,3600);
+            Session::set('admin_name', $name);
+            Session::set('admin_pwd', $password);
             $this->success('登陆成功', '/admin/index/index');
         }
         //忘记密码

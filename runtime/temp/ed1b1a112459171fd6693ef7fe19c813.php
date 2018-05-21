@@ -1,6 +1,5 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:49:"E:\BK/application/index\view\message\message.html";i:1526647925;s:47:"E:\BK\application\index\view\public\header.html";i:1526696692;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:49:"E:\BK/application/index\view\message\message.html";i:1526894722;s:47:"E:\BK\application\index\view\public\header.html";i:1526891613;}*/ ?>
 <!DOCTYPE html>
-<?php session_start(); ?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -44,9 +43,8 @@
     <div class="totle row">
         <ul style="height: 30px;padding-top: 7px;width: 1040px">
             <li class="layui-nav-item" style="float: left;margin-left: -40px">Hi,你好，现在是：<?php echo date('Y年-m月-d日 H:m'); ?>&nbsp;&nbsp;&nbsp;星期<?php echo date('N'); ?>&nbsp;&nbsp;&nbsp;本年的第<?php echo date('W'); ?>周</li>
-            <li style="float: right">您好！欢迎<?php if($_SESSION['user_name']): ?><a style="color: #007DDB;text-decoration: none" href="javascript:;"><?php echo $_SESSION['user_name']; ?></a><?php endif; ?>访问李鑫的个人博客&nbsp;&nbsp;&nbsp;&nbsp;
-                <a href="<?php echo url('/index/login/login'); ?>">
-                    <?php if($_SESSION['user_name']==''): ?>登录或注册<?php endif; ?></a></li>
+            <li style="float: right">您好！欢迎<?php if($name!='null'): ?><a style="color: #007DDB;text-decoration: none" href="javascript:;"><?php echo $name; ?></a><?php endif; ?>访问李鑫的个人博客&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="<?php echo url('/index/login/login'); ?>"><?php if($name=='null'): ?>登录或注册<?php endif; ?></a></li>
         </ul>
     </div>
     <div class="totle row header">
@@ -114,13 +112,72 @@
     </script>
 </header>
 
+<script type="text/javascript">
+    //layui的懒加载
+//    layui.use('flow', function(){
+//        var $ = layui.jquery; //不用额外加载jQuery，flow模块本身是有依赖jQuery的，直接用即可。
+//        var flow = layui.flow;
+//        flow.load({
+//            elem: '#demo' //指定列表容器
+//            ,done: function(page, next){ //到达临界点（默认滚动触发），触发下一页
+//                var lis = [];
+//                //以jQuery的Ajax请求为例，请求下一页数据（注意：page是从2开始返回）
+//                $.get('/api/list?page='+page, function(res){
+//                    //假设你的列表返回在data集合中
+//                    layui.each(res.data, function(index, item){
+//                        lis.push('<li>'+ item.title +'</li>');
+//                    });
+//                    //执行下一页渲染，第二参数为：满足“加载更多”的条件，即后面仍有分页
+//                    //pages为Ajax返回的总页数，只有当前页小于总页数的情况下，才会继续出现加载更多
+//                    next(lis.join(''), page < res.pages);
+//                });
+//            }
+//        });
+//    });
+    $(function(){
+        $('#button').click(function(){
+            $content = $('#data').val();
+            $.ajax({
+                type: "POST",
+                url: "/index/message/verify",
+                data: {"content":$content},
+                dataType: 'json',
+                success: function($data){
+                    alert($data);
+                    if($data=='留言成功，等待后台审核'){
+                        $('#data').val('');
+                    }
+                }
+            });
+        });
+    });
+</script>
 <div class="totle">
     <div class="row">
         <div class="col-xl-6" style="width: 730px;height: 650px;float: left">
-            <textarea rows="15" style="margin-top: 20px;width: 100%" placeholder="欢迎讨论..."></textarea>
+            <textarea id="data" rows="15" style="width: 100%" placeholder="欢迎讨论..."></textarea>
             <br/><br/>
-            <button type="button" class="btn btn-info">点击留言</button>
+            <button type="button" id="button" class="btn btn-info">点击留言</button>
+            <h style="float: right;font-size: 20px;margin-top: 18px">留言板</h>
+            <div id="mess" class="well well-lg" style="width: 684px;margin-top: 10px">
+                <ul>
+                    <li class="li"><a style="font-size: 20px">admin</a>&nbsp;&nbsp;&nbsp;2018-5-21</li>
+                    <li>Session驱动 这里参数不一致的情况下需要说明， 哪些参数用在哪个驱动，就上次前台和后台设置的session前缀不同，过期时间也不同，但是用的redis ，出现了同时退出的情况， 看了下 redis前缀根本没使用配置文件中的前缀，导致形成这个BUG困扰了很长时间呢。</li>
+                </ul>
+                <ul>
+                    <li class="li"><a style="font-size: 20px">admin</a>&nbsp;&nbsp;&nbsp;2018-5-21</li>
+                    <li>Session驱动 这里参数不一致的情况下需要说明， 哪些参数用在哪个驱动，就上次前台和后台设置的session前缀不同，过期时间也不同，但是用的redis ，出现了同时退出的情况， 看了下 redis前缀根本没使用配置文件中的前缀，导致形成这个BUG困扰了很长时间呢。</li>
+                </ul>
+                <ul>
+                    <li class="li"><a style="font-size: 20px">admin</a>&nbsp;&nbsp;&nbsp;2018-5-21</li>
+                    <li>Session驱动 这里参数不一致的情况下需要说明， 哪些参数用在哪个驱动，就上次前台和后台设置的session前缀不同，过期时间也不同，但是用的redis ，出现了同时退出的情况， 看了下 redis前缀根本没使用配置文件中的前缀，导致形成这个BUG困扰了很长时间呢。</li>
+                </ul>
+            </div>
+            <div style="background-color: #e3e3e3;height: 26px;text-align: center;line-height: normal">
+                <a href="#">查看更多</a>
+            </div>
         </div>
+
         <div id="aboutme" class="col-xl-6 well well-lg site-doc-icon">
             <h2 class="ab_title">精选留言</h2>
             <div class="ab_con">
@@ -188,5 +245,12 @@
     .avatar img {
         width: 100px;
         height: 100px
+    }
+    #mess ul{
+        margin-bottom: 20px;
+        line-height: 23px;
+    }
+    .li{
+        margin-bottom: 5px;
     }
 </style>

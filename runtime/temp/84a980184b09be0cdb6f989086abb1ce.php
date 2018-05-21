@@ -1,6 +1,5 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:51:"E:\BK/application/index\view\personal\personal.html";i:1526647341;s:47:"E:\BK\application\index\view\public\header.html";i:1526692240;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:51:"E:\BK/application/index\view\personal\personal.html";i:1526647341;s:47:"E:\BK\application\index\view\public\header.html";i:1526891613;}*/ ?>
 <!DOCTYPE html>
-<?php session_start(); ?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -44,9 +43,8 @@
     <div class="totle row">
         <ul style="height: 30px;padding-top: 7px;width: 1040px">
             <li class="layui-nav-item" style="float: left;margin-left: -40px">Hi,你好，现在是：<?php echo date('Y年-m月-d日 H:m'); ?>&nbsp;&nbsp;&nbsp;星期<?php echo date('N'); ?>&nbsp;&nbsp;&nbsp;本年的第<?php echo date('W'); ?>周</li>
-            <li style="float: right">您好！欢迎<?php if($_SESSION['user_name']): ?><?php echo $_SESSION['user_name']; endif; ?>访问李鑫的个人博客&nbsp;&nbsp;&nbsp;&nbsp;
-                <a href="<?php echo url('/index/login/login'); ?>">
-                    <?php if($_SESSION['user_name']==''): ?>登录或注册<?php endif; ?></a></li>
+            <li style="float: right">您好！欢迎<?php if($name!='null'): ?><a style="color: #007DDB;text-decoration: none" href="javascript:;"><?php echo $name; ?></a><?php endif; ?>访问李鑫的个人博客&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="<?php echo url('/index/login/login'); ?>"><?php if($name=='null'): ?>登录或注册<?php endif; ?></a></li>
         </ul>
     </div>
     <div class="totle row header">

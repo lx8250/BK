@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<?php session_start(); ?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -43,9 +42,8 @@
     <div class="totle row">
         <ul style="height: 30px;padding-top: 7px;width: 1040px">
             <li class="layui-nav-item" style="float: left;margin-left: -40px">Hi,你好，现在是：{:date('Y年-m月-d日 H:m')}&nbsp;&nbsp;&nbsp;星期{:date('N')}&nbsp;&nbsp;&nbsp;本年的第{:date('W')}周</li>
-            <li style="float: right">您好！欢迎{if $_SESSION['user_name']}<a style="color: #007DDB;text-decoration: none" href="javascript:;">{$_SESSION['user_name']}</a>{/if}访问李鑫的个人博客&nbsp;&nbsp;&nbsp;&nbsp;
-                <a href="{:url('/index/login/login')}">
-                    {if $_SESSION['user_name']==''}登录或注册{/if}</a></li>
+            <li style="float: right">您好！欢迎{if $name!='null'}<a style="color: #007DDB;text-decoration: none" href="javascript:;">{$name}</a>{/if}访问李鑫的个人博客&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="{:url('/index/login/login')}">{if $name=='null'}登录或注册{/if}</a></li>
         </ul>
     </div>
     <div class="totle row header">
