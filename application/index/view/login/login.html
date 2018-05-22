@@ -20,6 +20,23 @@
 
     <!-- Custom Theme Style -->
     <link href="__STATIC__/css/custom.min.css" rel="stylesheet">
+    <script src="__STATIC__/js/jquery.min.js" charset="utf-8" ></script>
+    <script type="text/javascript">
+        $(function(){
+            $('#username').blur(function(){
+                var username = $(this).val();
+                $.ajax({
+                   type: 'POST',
+                   url:'/index/login/verify',
+                   data: {'username':username},
+                   dataType: 'json',
+                   success : function (data) {
+                       alert(data);
+                   }
+                });
+            });
+        });
+    </script>
 </head>
 
 <body class="login">
@@ -64,7 +81,7 @@
                     <h1>创建用户</h1>
                     <input type="hidden" name="op" value="register">
                     <div>
-                        <input type="text" class="form-control" name="username" placeholder="用户名" required />
+                        <input id="username" type="text" class="form-control" name="username" placeholder="用户名" required />
                     </div>
                     <div>
                         <input type="email" class="form-control" name="email" placeholder="邮箱" required />

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:49:"E:\BK/application/index\view\message\message.html";i:1526894722;s:47:"E:\BK\application\index\view\public\header.html";i:1526891613;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:49:"E:\BK/application/index\view\message\message.html";i:1526981167;s:47:"E:\BK\application\index\view\public\header.html";i:1526981265;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,7 +47,7 @@
                 <a href="<?php echo url('/index/login/login'); ?>"><?php if($name=='null'): ?>登录或注册<?php endif; ?></a></li>
         </ul>
     </div>
-    <div class="totle row header">
+    <div class="row" style="margin-left: 20%;margin-right: -9%">
         <ul class="layui-nav layui-bg-cyan" style="padding-top: 0px">
             <li class="layui-nav-item" style="margin-left: -40px"><a href="<?php echo url('/index/index/index'); ?>">首页</a></li>
             <li class="layui-nav-item"><a href="<?php echo url('/index/fresh/fresh'); ?>">新鲜科技</a></li>
@@ -112,6 +112,7 @@
     </script>
 </header>
 
+<link rel="stylesheet" href="/static/css/message.css">
 <script type="text/javascript">
     //layui的懒加载
 //    layui.use('flow', function(){
@@ -153,12 +154,12 @@
     });
 </script>
 <div class="totle">
-    <div class="row">
-        <div class="col-xl-6" style="width: 730px;height: 650px;float: left">
+    <div class="row" style="width: 1096px">
+        <div class="col-xl-6" id="div1">
             <textarea id="data" rows="15" style="width: 100%" placeholder="欢迎讨论..."></textarea>
             <br/><br/>
             <button type="button" id="button" class="btn btn-info">点击留言</button>
-            <h style="float: right;font-size: 20px;margin-top: 18px">留言板</h>
+            <h>留言板</h>
             <div id="mess" class="well well-lg" style="width: 684px;margin-top: 10px">
                 <ul>
                     <li class="li"><a style="font-size: 20px">admin</a>&nbsp;&nbsp;&nbsp;2018-5-21</li>
@@ -173,7 +174,7 @@
                     <li>Session驱动 这里参数不一致的情况下需要说明， 哪些参数用在哪个驱动，就上次前台和后台设置的session前缀不同，过期时间也不同，但是用的redis ，出现了同时退出的情况， 看了下 redis前缀根本没使用配置文件中的前缀，导致形成这个BUG困扰了很长时间呢。</li>
                 </ul>
             </div>
-            <div style="background-color: #e3e3e3;height: 26px;text-align: center;line-height: normal">
+            <div id="div2">
                 <a href="#">查看更多</a>
             </div>
         </div>
@@ -190,67 +191,3 @@
         </div>
     </div>
 </div>
-<style>
-    #aboutme {
-        background: #FFF;
-        border-radius: 10px;
-        overflow: hidden;
-        width: 343px;
-        height: 600px;
-        margin-left: 20px;
-        padding-left: 14px;
-        font-size: 16px;
-        margin-top: 20px;
-    }
-
-    .ab_title {
-        text-align: center;
-        position: relative;
-        margin: 20px;
-    }
-
-    .ab_title:before {
-        content: "";
-        width: 25%;
-        height: 2px;
-        background: #000;
-        position: absolute;
-        left: 0;
-        bottom: 8px
-    }
-
-    .ab_title:after {
-        content: "";
-        width: 25%;
-        height: 2px;
-        background: #000;
-        position: absolute;
-        right: 0;
-        bottom: 8px
-    }
-
-    .ab_con {
-        line-height: 30px;
-        padding: 10px;
-    }
-
-    .ab_con p {
-        background: #f6f6f6;
-        margin: 5px 0;
-        padding-left: 10px;
-        border-radius: 5px;
-        text-shadow: rgba(255, 255, 255, 0.3) 0px 1px 0px;
-    }
-
-    .avatar img {
-        width: 100px;
-        height: 100px
-    }
-    #mess ul{
-        margin-bottom: 20px;
-        line-height: 23px;
-    }
-    .li{
-        margin-bottom: 5px;
-    }
-</style>

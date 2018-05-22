@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:45:"E:\BK/application/index\view\fresh\fresh.html";i:1526642667;s:47:"E:\BK\application\index\view\public\header.html";i:1526891613;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:45:"E:\BK/application/index\view\fresh\fresh.html";i:1526642667;s:47:"E:\BK\application\index\view\public\header.html";i:1526980471;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,7 +47,7 @@
                 <a href="<?php echo url('/index/login/login'); ?>"><?php if($name=='null'): ?>登录或注册<?php endif; ?></a></li>
         </ul>
     </div>
-    <div class="totle row header">
+    <div class="row" style="margin-left: 20%;margin-right: -9%">
         <ul class="layui-nav layui-bg-cyan" style="padding-top: 0px">
             <li class="layui-nav-item" style="margin-left: -40px"><a href="<?php echo url('/index/index/index'); ?>">首页</a></li>
             <li class="layui-nav-item"><a href="<?php echo url('/index/fresh/fresh'); ?>">新鲜科技</a></li>

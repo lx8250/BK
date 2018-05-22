@@ -17,14 +17,8 @@ class Message extends Controller{
                 return '留言内容不能为空';
             }
             //获取用户IP和地区
-//            $request = Request::instance();
-//            $ip = Request::instance()->ip();
-//            $url='http://ip.taobao.com/service/getIpInfo.php?ip='.$ip;
-//            $result = file_get_contents($url);
-//            $result = json_decode($result,true);
-//            dump($result);
-            $ip = Request::instance()->ip();
-            $temp = Db::table('bk_message')->insert(['user_name'=>'admin','message_content'=>$content,'stay_user_ip'=>$ip,'message_stay_time'=>date('Y-m-d H:m:s'),'place'=>'洛阳']);
+            $ip = '';
+            $temp = Db::table('bk_message')->insert(['user_name'=>'admin','message_content'=>$content,'message_stay_time'=>date('Y-m-d H:i:s')]);
             if($temp){
                 return '留言成功，等待后台审核';
             }

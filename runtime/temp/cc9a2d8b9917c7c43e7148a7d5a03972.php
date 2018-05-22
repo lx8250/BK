@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:45:"E:\BK/application/index\view\login\login.html";i:1526689309;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:45:"E:\BK/application/index\view\login\login.html";i:1526982203;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,6 +21,23 @@
 
     <!-- Custom Theme Style -->
     <link href="/static/css/custom.min.css" rel="stylesheet">
+    <script src="/static/js/jquery.min.js" charset="utf-8" ></script>
+    <script type="text/javascript">
+        $(function(){
+            $('#username').blur(function(){
+                var username = $(this).val();
+                $.ajax({
+                   type: 'POST',
+                   url:'/index/login/verify',
+                   data: {'username':username},
+                   dataType: 'json',
+                   success : function (data) {
+                       alert(data);
+                   }
+                });
+            });
+        });
+    </script>
 </head>
 
 <body class="login">
@@ -65,7 +82,7 @@
                     <h1>创建用户</h1>
                     <input type="hidden" name="op" value="register">
                     <div>
-                        <input type="text" class="form-control" name="username" placeholder="用户名" required />
+                        <input id="username" type="text" class="form-control" name="username" placeholder="用户名" required />
                     </div>
                     <div>
                         <input type="email" class="form-control" name="email" placeholder="邮箱" required />

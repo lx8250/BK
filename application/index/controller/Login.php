@@ -27,6 +27,8 @@ class Login extends Controller
             }
             Session::set('user_name', $name);
             Session::set('user_pwd', $password);
+            Session::set('user_id',$temp[0]['user_id']);
+            insert_ip($temp[0]['user_id']);
             $this->success('登陆成功', '/index/index/index');
         }
         //用户注册
@@ -54,5 +56,15 @@ class Login extends Controller
         $data = stripslashes($data);
         $data = htmlspecialchars($data);
         return $data;
+    }
+    function verify(){
+        $username = login::test_input($_POST['username']);
+        if($username==''){
+            return '用户名不能为空';
+        }
+        $reuser = Db::query("select user_name from bk_user WHERE user_name='$username'");
+        if(!empty($reuser)){
+            return '用户名已存在';
+        }
     }
 }

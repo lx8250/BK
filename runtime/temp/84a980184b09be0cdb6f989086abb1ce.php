@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:51:"E:\BK/application/index\view\personal\personal.html";i:1526647341;s:47:"E:\BK\application\index\view\public\header.html";i:1526891613;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:51:"E:\BK/application/index\view\personal\personal.html";i:1526980811;s:47:"E:\BK\application\index\view\public\header.html";i:1526981265;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,7 +47,7 @@
                 <a href="<?php echo url('/index/login/login'); ?>"><?php if($name=='null'): ?>登录或注册<?php endif; ?></a></li>
         </ul>
     </div>
-    <div class="totle row header">
+    <div class="row" style="margin-left: 20%;margin-right: -9%">
         <ul class="layui-nav layui-bg-cyan" style="padding-top: 0px">
             <li class="layui-nav-item" style="margin-left: -40px"><a href="<?php echo url('/index/index/index'); ?>">首页</a></li>
             <li class="layui-nav-item"><a href="<?php echo url('/index/fresh/fresh'); ?>">新鲜科技</a></li>
@@ -112,8 +112,9 @@
     </script>
 </header>
 
+<link rel="stylesheet" href="/static/css/personal.css"/>
 <div class="totle">
-    <div class="row" style="margin-left: 0px">
+    <div class="row" style="margin-left: 0px;width: 1096px">
         <div class="col-xl-6 well well-lg" style="width: 680px;height: 650px;">
                 <p class="h4" style="line-height: 26px">年龄，那是一种对时间的焦虑。张爱玲一句“出名要趁早”，害了不知多少人。人是靠价值相互认同的，而不是年龄；一个人要知道自己想要什么，才能做成事情。别着急，你还年轻，喜欢的事情大可以努力去做，没有钱途也没关系。毕竟，你还年轻啊！</p>
             <p class="h4">李笑来在《把时间当作朋友》里写：我们总是对短期收益期望过高，却对长期收益期望过低。
@@ -142,68 +143,6 @@
         </div>
     </div>
 </div>
-<style>
-    .h4{
-        line-height: 26px;
-    }
-    #img{
-        margin-left: 35%;
-    }
-    #aboutme {
-        background: #FFF;
-        border-radius: 10px;
-        overflow: hidden;
-        width: 343px;
-        height: 500px;
-        margin-left: 20px;
-        padding-left: 14px;
-        font-size: 16px;
-    }
-
-    .ab_title {
-        text-align: center;
-        position: relative;
-        margin: 20px;
-    }
-
-    .ab_title:before {
-        content: "";
-        width: 25%;
-        height: 2px;
-        background: #000;
-        position: absolute;
-        left: 0;
-        bottom: 8px
-    }
-
-    .ab_title:after {
-        content: "";
-        width: 25%;
-        height: 2px;
-        background: #000;
-        position: absolute;
-        right: 0;
-        bottom: 8px
-    }
-
-    .ab_con {
-        line-height: 30px;
-        padding: 10px;
-    }
-
-    .ab_con p {
-        background: #f6f6f6;
-        margin: 5px 0;
-        padding-left: 10px;
-        border-radius: 5px;
-        text-shadow: rgba(255, 255, 255, 0.3) 0px 1px 0px;
-    }
-
-    .avatar img {
-        width: 100px;
-        height: 100px
-    }
-</style>
 <script>
     layui.use('jquery', function () {
         var $ = layui.$;
