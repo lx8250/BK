@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50553
 File Encoding         : 65001
 
-Date: 2018-05-19 11:29:56
+Date: 2018-05-23 17:36:23
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -146,6 +146,37 @@ CREATE TABLE `bk_friendly_link` (
 -- ----------------------------
 
 -- ----------------------------
+-- Table structure for `bk_message`
+-- ----------------------------
+DROP TABLE IF EXISTS `bk_message`;
+CREATE TABLE `bk_message` (
+  `stay_id` smallint(5) NOT NULL AUTO_INCREMENT COMMENT '留言表自增ID',
+  `user_name` varchar(255) NOT NULL COMMENT '用户名',
+  `message_content` varchar(255) NOT NULL COMMENT '留言内容',
+  `message_stay_time` datetime NOT NULL COMMENT '留言时间',
+  `check` smallint(2) NOT NULL DEFAULT '0' COMMENT '留言审核 0：不成功，1：成功，2：精选留言',
+  PRIMARY KEY (`stay_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of bk_message
+-- ----------------------------
+INSERT INTO `bk_message` VALUES ('3', 'admin', '你好世界', '0000-00-00 00:00:00', '0');
+INSERT INTO `bk_message` VALUES ('4', 'admin', '你好世界', '0000-00-00 00:00:00', '0');
+INSERT INTO `bk_message` VALUES ('5', 'admin', '哈哈哈哈', '0000-00-00 00:00:00', '0');
+INSERT INTO `bk_message` VALUES ('6', 'admin', '哈哈哈哈', '0000-00-00 00:00:00', '0');
+INSERT INTO `bk_message` VALUES ('7', 'admin', '你好世界', '0000-00-00 00:00:00', '0');
+INSERT INTO `bk_message` VALUES ('8', 'admin', '最后一次了', '0000-00-00 00:00:00', '0');
+INSERT INTO `bk_message` VALUES ('9', 'admin', 'nihaoshijie', '0000-00-00 00:00:00', '0');
+INSERT INTO `bk_message` VALUES ('10', 'admin', 'dsada', '0000-00-00 00:00:00', '0');
+INSERT INTO `bk_message` VALUES ('11', 'admin', 'dsadadsad', '0000-00-00 00:00:00', '0');
+INSERT INTO `bk_message` VALUES ('12', 'admin', 'dsada', '0000-00-00 00:00:00', '0');
+INSERT INTO `bk_message` VALUES ('13', 'admin', 'sdada', '2018-05-22 00:00:00', '0');
+INSERT INTO `bk_message` VALUES ('14', 'admin', 'dsadadsa', '2018-05-22 00:00:00', '0');
+INSERT INTO `bk_message` VALUES ('15', 'admin', 'sadsadsa', '2018-05-22 16:44:07', '0');
+INSERT INTO `bk_message` VALUES ('16', 'admin', 'nihao', '2018-05-23 17:14:12', '0');
+
+-- ----------------------------
 -- Table structure for `bk_phone_message`
 -- ----------------------------
 DROP TABLE IF EXISTS `bk_phone_message`;
@@ -254,25 +285,6 @@ CREATE TABLE `bk_shuoshuo` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `bk_stay_message`
--- ----------------------------
-DROP TABLE IF EXISTS `bk_stay_message`;
-CREATE TABLE `bk_stay_message` (
-  `stay_id` smallint(5) NOT NULL AUTO_INCREMENT COMMENT '留言表自增ID',
-  `user_id` mediumint(8) NOT NULL COMMENT '用户ID',
-  `stay_user_id` mediumint(8) NOT NULL COMMENT '留言者ID',
-  `message_content` varchar(255) NOT NULL COMMENT '留言内容',
-  `stay_user_ip` varchar(15) NOT NULL COMMENT '留言用户的IP地址',
-  `message_stay_time` int(13) NOT NULL COMMENT '留言时间',
-  `place` varchar(64) NOT NULL COMMENT '地区',
-  PRIMARY KEY (`stay_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of bk_stay_message
--- ----------------------------
-
--- ----------------------------
 -- Table structure for `bk_system_message`
 -- ----------------------------
 DROP TABLE IF EXISTS `bk_system_message`;
@@ -295,17 +307,19 @@ CREATE TABLE `bk_system_message` (
 -- ----------------------------
 DROP TABLE IF EXISTS `bk_user`;
 CREATE TABLE `bk_user` (
-  `user_id` int(11) NOT NULL,
-  `user_name` varchar(255) NOT NULL,
-  `user_pwd` varchar(255) NOT NULL,
-  `user_email` varchar(255) NOT NULL,
+  `user_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '用户表ID',
+  `user_name` varchar(255) NOT NULL COMMENT '用户名',
+  `user_pwd` varchar(255) NOT NULL COMMENT '用户密码',
+  `user_email` varchar(255) NOT NULL COMMENT '用户邮箱',
+  `date_time` datetime NOT NULL COMMENT '用户注册时间',
   PRIMARY KEY (`user_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of bk_user
 -- ----------------------------
-INSERT INTO `bk_user` VALUES ('0', 'admin', 'e10adc3949ba59abbe56e057f20f883e', '123456@123.com');
+INSERT INTO `bk_user` VALUES ('1', 'admin', 'e10adc3949ba59abbe56e057f20f883e', '123456@123.com', '2018-05-23 12:01:55');
+INSERT INTO `bk_user` VALUES ('2', 'admin', 'e10adc3949ba59abbe56e057f20f883e', '123@123', '2018-05-16 12:02:00');
 
 -- ----------------------------
 -- Table structure for `bk_user_attention`
@@ -359,6 +373,26 @@ CREATE TABLE `bk_user_group` (
 -- ----------------------------
 
 -- ----------------------------
+-- Table structure for `bk_user_loginip`
+-- ----------------------------
+DROP TABLE IF EXISTS `bk_user_loginip`;
+CREATE TABLE `bk_user_loginip` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` varchar(255) NOT NULL COMMENT '用户id',
+  `user_ip` varchar(255) DEFAULT NULL COMMENT '用户登录的IP地址',
+  `address` varchar(255) DEFAULT NULL COMMENT '登录地点',
+  `addtime` datetime NOT NULL COMMENT '登陆时间',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of bk_user_loginip
+-- ----------------------------
+INSERT INTO `bk_user_loginip` VALUES ('1', '0', '::1', '', '2018-05-22 16:00:51');
+INSERT INTO `bk_user_loginip` VALUES ('2', '0', '::1', '', '2018-05-22 16:37:28');
+INSERT INTO `bk_user_loginip` VALUES ('3', '1', '::1', '', '2018-05-23 17:14:03');
+
+-- ----------------------------
 -- Table structure for `bk_user_rank`
 -- ----------------------------
 DROP TABLE IF EXISTS `bk_user_rank`;
@@ -373,6 +407,30 @@ CREATE TABLE `bk_user_rank` (
 -- ----------------------------
 -- Records of bk_user_rank
 -- ----------------------------
+
+-- ----------------------------
+-- Table structure for `bk_user_visit`
+-- ----------------------------
+DROP TABLE IF EXISTS `bk_user_visit`;
+CREATE TABLE `bk_user_visit` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '访客表id',
+  `visit_time` datetime NOT NULL COMMENT '访问时间',
+  `visit_ip` varchar(255) NOT NULL COMMENT '访问者ip',
+  `visit_address` varchar(255) DEFAULT NULL COMMENT '访问者地址',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of bk_user_visit
+-- ----------------------------
+INSERT INTO `bk_user_visit` VALUES ('1', '2018-05-23 15:58:34', '::1', '');
+INSERT INTO `bk_user_visit` VALUES ('2', '2018-05-23 17:13:29', '::1', '');
+INSERT INTO `bk_user_visit` VALUES ('3', '2018-05-23 17:13:37', '::1', '');
+INSERT INTO `bk_user_visit` VALUES ('4', '2018-05-23 17:13:41', '::1', '');
+INSERT INTO `bk_user_visit` VALUES ('5', '2018-05-23 17:14:06', '::1', '');
+INSERT INTO `bk_user_visit` VALUES ('6', '2018-05-23 17:18:53', '::1', '');
+INSERT INTO `bk_user_visit` VALUES ('7', '2018-05-23 17:18:57', '::1', '');
+INSERT INTO `bk_user_visit` VALUES ('8', '2018-05-23 17:19:02', '::1', '');
 
 -- ----------------------------
 -- Table structure for `bk_visitor`
