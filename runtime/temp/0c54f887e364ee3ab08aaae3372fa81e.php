@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:45:"E:\BK/application/admin\view\index\index.html";i:1526694218;s:47:"E:\BK\application\admin\view\public\header.html";i:1526694470;s:47:"E:\BK\application\admin\view\public\footer.html";i:1522823038;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:45:"E:\BK/application/admin\view\index\index.html";i:1527066784;s:47:"E:\BK\application\admin\view\public\header.html";i:1526694470;s:47:"E:\BK\application\admin\view\public\footer.html";i:1522823038;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -122,23 +122,23 @@
     <div class="row tile_count"  style="text-align: center;margin-top: 8%;padding-left: 160px">
         <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
             <span class="count_top"><i class="fa fa-user"></i> 用户总数</span>
-            <div class="count">2500</div>
+            <div class="count"><?php echo $yonghu; ?></div>
         </div>
         <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
             <span class="count_top"><i class="fa fa-clock-o"></i> 今日新增用户</span>
-            <div class="count">12</div>
+            <div class="count"><?php echo $xinzeng; ?></div>
         </div>
         <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
             <span class="count_top"><i class="fa fa-user"></i> 今日浏览量</span>
-            <div class="count green">2500</div>
+            <div class="count green"><?php echo $visit_today; ?></div>
         </div>
         <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
             <span class="count_top"><i class="fa fa-user"></i> 总浏览量</span>
-            <div class="count">4567</div>
+            <div class="count"><?php echo $visit; ?></div>
         </div>
         <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
             <span class="count_top"><i class="fa fa-user"></i> 今日用户留言</span>
-            <div class="count">433</div>
+            <div class="count"><?php echo $liuyan; ?></div>
         </div>
     </div>
     <!-- /首页统计结束 -->

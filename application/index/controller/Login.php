@@ -38,7 +38,7 @@ class Login extends Controller
             }
             $user = ['user_name' => $name, 'user_pwd' => md5($password), 'user_email' => $email];
             Db::table('bk_user')->insert($user);
-            $this->success('注册成功', '/index/login/login');
+            $this->success('注册成功，请先登录', '/index/login/login');
         }
         //忘记密码
         if(input('op')=='repass'){
@@ -59,9 +59,9 @@ class Login extends Controller
     }
     function verify(){
         $username = login::test_input($_POST['username']);
-        if($username==''){
-            return '用户名不能为空';
-        }
+//        if($username==''){
+//            return '用户名不能为空';
+//        }
         $reuser = Db::query("select user_name from bk_user WHERE user_name='$username'");
         if(!empty($reuser)){
             return '用户名已存在';

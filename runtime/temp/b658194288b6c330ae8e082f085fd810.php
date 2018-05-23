@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:43:"E:\BK/application/index\view\note\note.html";i:1522720966;s:47:"E:\BK\application\index\view\public\header.html";i:1526980471;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:43:"E:\BK/application/index\view\note\note.html";i:1522720966;s:47:"E:\BK\application\index\view\public\header.html";i:1526981265;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
