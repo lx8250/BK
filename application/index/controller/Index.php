@@ -6,7 +6,7 @@ class Index extends Controller
 {
     public function index(){
         //访客记录
-        visit_ip();
+//        visit_ip();
         return $this->fetch();
     }
 }

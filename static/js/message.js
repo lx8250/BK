@@ -92,10 +92,8 @@
                 var obj = new Object();
                 obj.replyName="匿名";
                 if(el.parent().parent().hasClass("reply")){
-                    console.log("1111");
                     obj.beReplyName = el.parent().parent().find("a:first").text();
                 }else{
-                    console.log("2222");
                     obj.beReplyName=parentEl.find("h3").text();
                 }
                 obj.content=content;

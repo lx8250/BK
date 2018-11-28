@@ -28,7 +28,7 @@ class Login extends Controller
             Session::set('user_name', $name);
             Session::set('user_pwd', $password);
             Session::set('user_id',$temp[0]['user_id']);
-            insert_ip($temp[0]['user_id']);
+//            insert_ip($temp[0]['user_id']);
             $this->success('登陆成功', '/index/index/index');
         }
         //用户注册

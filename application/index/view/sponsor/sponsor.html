@@ -1,12 +1,374 @@
 {include file="public/header"}
-<h1 class="totle h1" style="padding: 35px">感谢各位的支持！！!</h1>
-    <div class="row totle" style="width: 900px;margin-left: 440px;">
-        <div class="col-md-6" style="width: 400px;height: 100%;text-align: center">
-            <img src="__STATIC__/images/pay/ZhiFuBao.png" alt="支付宝">
-            <p class="h3" style="text-align: center">支付宝</p>
-        </div>
-        <div class="col-md-6" style="width: 400px;height: 100%;margin-left: 11%">
-            <img src="__STATIC__/images/pay/WeiXin.png" alt="微信">
-            <p class="h3" style="text-align: center">微信</p>
+<link rel="stylesheet" href="https://a.amap.com/jsapi_demos/static/demo-center/css/demo-center.css" />
+<link href="__STATIC__/css/sponsor.css" rel="stylesheet">
+<script src="https://a.amap.com/jsapi_demos/static/demo-center/js/demoutils.js"></script>
+<script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.10&key=da2cfeb7f10e8476bb105bef40ddbc4b&plugin=AMap.TruckDriving"></script>
+<!-- UI组件库 1.0 -->
+<script src="https://webapi.amap.com/ui/1.0/main.js?v=1.0.11"></script>
+<style>
+    #panel {
+        position: absolute;
+        background-color: white;
+        max-height: 90%;
+        overflow-y: auto;
+        top: 22%;
+        right: 20%;
+        width: 280px;
+    }
+</style>
+<div class="totle" style="margin-top: 20px;border: 1px solid;width: 1142px">
+    <!--搜索地点-->
+    <div style="width: 500px;">
+        <div class="input-item">
+            <div class="input-item-prepend">
+                <span class="input-item-text" style="width:8rem;">请输入关键字</span>
+            </div>
+            <input id='tipinput' type="text">
         </div>
     </div>
+    <div id="container"></div>
+    <!--回车搜索-->
+    <div id="panel"></div>
+    <!--实时路况-->
+    <!--<div class="input-card" style="width: auto;">-->
+        <!--<div class="input-item">-->
+            <!--<button class="btn" id="btn">显示/隐藏实时路况</button>-->
+        <!--</div>-->
+    <!--</div>-->
+</div>
+
+<script>
+//------------------------------------------------------
+    //初始化地图
+    //异步加载
+    $(function(){
+        //初始化地图插件并设置显示层级，中心点坐标
+//        var map = new AMap.Map('container',{
+//            resizeEnable: true,//是否开启自动获取定位
+//            zoom:16,//级别
+////            center: [116.397428, 39.90923],//中心点坐标   默认为当前位置中心
+////            开启 3D 地图视图效果，需要引用JSAPI v1.4.0以上版本的JSAPI，同时在 Map 初始化的时候给地图添加viewMode:3D属性。
+////              3D暂时未研究
+////            viewMode:'3D',//使用3D视图
+////            pitch:65, // 地图俯仰角度，有效范围 0 度- 83 度
+//        });
+
+//-------------------------------------------------------
+//        //实时路况图层
+//        //使用TileLayer.Traffic在地图上添加实时交通图，适用于显示实时交通的场景。
+//        var trafficLayer = new AMap.TileLayer.Traffic({
+//            zIndex: 10
+//        });
+//        //显示/隐藏试试路况
+//        var isVisible = true;
+//        $('#btn').click(function () {
+//            map.add(trafficLayer);//添加图层到地图
+//            if (isVisible) {
+//                trafficLayer.show();
+//                isVisible = false;
+//            } else {
+//                trafficLayer.hide();
+//                isVisible = true;
+//            }
+//        });
+//-------------------------------------------------------
+        //添加marker标记
+//        addMarker();
+//        function addMarker() {
+//            var marker = new AMap.Marker({
+//                map: map,
+//                title:'地图测试',
+//                position: [112.33715,34.6827],
+//            });
+//        }
+//----------------------------------------------------------
+//        获取自己当前位置（需要引入谷歌的定位功能）地图初始化加载的定位只能获取到城市级别信息，如果想获取到具体的位置就要借助浏览器定位
+//        AMap.plugin('AMap.Geolocation', function() {
+//            var geolocation = new AMap.Geolocation({
+//                enableHighAccuracy: true,//是否使用高精度定位，默认:true
+//                timeout: 10000,          //超过10秒后停止定位，默认：5s
+//                buttonPosition:'RB',    //定位按钮的停靠位置
+//                buttonOffset: new AMap.Pixel(10, 20),//定位按钮与设置的停靠位置的偏移量，默认：Pixel(10, 20)
+//                zoomToAccuracy: true,   //定位成功后是否自动调整地图视野到定位点(回到自己的位置)
+//
+//            });
+//            map.addControl(geolocation);
+//            geolocation.getCurrentPosition(function(status,result){
+//                if(status=='complete'){
+////                    onComplete(result);
+//                }else{
+////                    onError(result)
+//                }
+//            });
+//        });
+
+//        //解析定位结果
+//        function onComplete(data) {
+//            document.getElementById('status').innerHTML='定位成功';
+//            var str = [];
+//            str.push('定位结果：' + data.position);
+//            str.push('定位类别：' + data.location_type);
+//            if(data.accuracy){
+//                str.push('精度：' + data.accuracy + ' 米');
+//            }//如为IP精确定位结果则没有精度信息
+//            str.push('是否经过偏移：' + (data.isConverted ? '是' : '否'));
+//            document.getElementById('result').innerHTML = str.join('<br>');
+//        }
+//        //解析定位错误信息
+//        function onError(data) {
+//            document.getElementById('status').innerHTML='定位失败'
+//            document.getElementById('result').innerHTML = '失败原因排查信息:'+data.message;
+//        }
+
+//----------------------------------------------------------------------------
+        //搜索地点，输入提示插件AMap.Autocomplete，POI搜索插件AMap.PlaceSearch
+        //没有回车搜索功能在下面
+//        AMap.plugin(['AMap.Autocomplete','AMap.PlaceSearch'],function(){
+//            var autoOptions = {
+//                // 城市，默认全国
+//                city: "全国",
+//                // 使用联想输入的input的id
+//                input: "tipinput"
+//            }
+//            var autocomplete= new AMap.Autocomplete(autoOptions)
+//            //搜索提示
+//            var placeSearch = new AMap.PlaceSearch({
+//                city:'全国',
+//                map:map
+//            })
+//            AMap.event.addListener(autocomplete, 'select', function(e){
+//                //TODO 针对选中的poi实现自己的功能
+//                placeSearch.search(e.poi.name)
+//            })
+//            //绑定查询点击、回车事件
+//            document.querySelector('#tipinput').onkeydown = function(e) {
+//                if (e.keyCode === 13) {
+//                    //获取当前数据
+//                    //当点击回车的时候搜索
+//                    var val = $('#tipinput').val();
+//                    AMap.service(["AMap.PlaceSearch"], function() {
+//                        //获取当前城市city
+//                        AMap.plugin('AMap.CitySearch', function () {
+//                            var citySearch = new AMap.CitySearch()
+//                            citySearch.getLocalCity(function (status, result) {
+//                                if (status === 'complete' && result.info === 'OK') {
+//                                    //构造地点查询类
+//                                    var placeSearch = new AMap.PlaceSearch({
+//                                        pageSize: 5, // 单页显示结果条数
+//                                        pageIndex: 1, // 页码
+//                                        city: result.city, // 兴趣点城市
+//                                        citylimit: false,  //是否强制限制在设置的城市内搜索
+//                                        map: map, // 展现结果的地图实例
+//                                        panel: "panel", // 结果列表将在此容器中进行展示。
+//                                        autoFitView: true // 是否自动调整地图视野使绘制的 Marker点都处于视口的可见范围
+//                                    });
+//                                    //关键字查询
+//                                    placeSearch.search(val);
+//                                }
+//                            })
+//                        })
+//                    });
+//                    return false;
+//                }
+//                return true;
+//            };
+//        });
+
+//---------------------------------------------------------------------------------
+//        路线规划(货车)
+        //构造路线导航类
+        var map = new AMap.Map("container", {});
+        var driving = new AMap.TruckDriving({
+            map: map,
+            policy:0,//路线规划策略，1-9  2,3,4,5,6,7
+            size:4,//车型大小，必填，1-4分别对应小型至大型
+            autoFitView:true,//用于控制在路径规划结束后，是否自动调整地图视野使绘制的路线处于视口的可见范围
+            hideMarkers:true,//设置隐藏路径规划的起始点图标 默认为false
+            // width://宽度，缺省2.5米
+            //height://高度，缺省1.6米
+            //load://载重，缺省0.9t
+            //weight://自重，缺省10t
+            //showTraffic://设置是否显示实时路况信息，默认设置为true。
+            //province://车辆牌照省份，如‘京’
+            //number://车牌号，如‘111111’
+//            city:'luoyang',
+            // panel:'panel'
+        });
+
+//        根据路径，实现货车路线规划，path支持两种格式
+//        第一种,使用经纬度：
+//        var path = [];
+//        path.push({
+//            lnglat:[116.303843, 39.983412]//位置必填
+//            pid:'XXXX',//POI ID,可缺省
+//            type:'YYY'//POI类型，可缺省
+//        });//起点
+//        path.push({lnglat:[116.321354, 39.896436]});//途径
+//        path.push({lnglat:[116.407012, 39.992093]});//终点
+//        truckdriving.search(path,function(status, result) { });
+
+//        第二种，使用关键字自动匹配：
+//        var path = [
+//          {keyword:'北京站',city:'010'},//起点
+//          {keyword:'北京西站',city:'010'},//途径
+//          {keyword:'北京大学',city:'010'}//终点
+//        ];
+//        truckdriving.search(path,function(status, result) { });
+
+        //设置起点终点
+//        var path = [
+//            {keyword:'洛阳站',city:''},//起点
+//            {keyword:'郑州站',city:''},//途径
+//            {keyword:'商丘站',city:''}//终点
+//        ];
+        var data = [
+            [112.436403,34.68547],
+            [112.486176,34.696696],
+            [112.982186,34.759987],
+            [113.427133,34.745319],
+            [113.589868,34.459335],
+            [113.850793,34.524983],
+            [115.170526,34.647088],
+            [115.655297,34.438951],
+        ];
+        //循环读取经纬度
+        var path=[];
+//        path.push({lnglat:[112.436403,34.68547]});
+//        path.push({lnglat:[115.655297,34.438951]});
+//        path.push({lnglat:[112.982186,34.759987]});
+//        path.push({lnglat:[113.427133,34.745319]});
+
+        for(var i=0;i<data.length;i++){
+            path.push({lnglat:data[i]});
+        }
+        //如果不需要那么多经过点的话，起点终点的图标需要单独设置，首先打开hideMarkers
+        new AMap.Marker({
+            map: map,
+            icon:'__STATIC__/images/start.png',
+            title:'起点',
+            position: data[0],
+        });
+        new AMap.Marker({
+            map: map,
+            icon:'__STATIC__/images/end.png',
+            title:'终点',
+            position: data[data.length-1],
+        });
+//        https://webapi.amap.com/theme/v1.3/markers/n/mark_b.png
+//        https://webapi.amap.com/theme/v1.3/markers/n/mark_r.png
+        //绘制路线及结果
+        driving.search(path, function(status, result) {
+             if (status === 'complete') {
+                 log.success('绘制货车路线完成')
+             } else {
+                 log.error('获取货车规划数据失败：' + result)
+             }
+        });
+// -------------------------------------------------------------------------------------------
+        //巡航器的设置(简单路径)
+        AMapUI.load(['ui/misc/PathSimplifier', 'lib/$'], function(PathSimplifier, $) {
+
+            if (!PathSimplifier.supportCanvas) {
+                alert('当前环境不支持 Canvas！');
+                return;
+            }
+            //启动页面，创建实例
+            var pathSimplifierIns = new PathSimplifier({
+                zIndex: 100,
+                //autoSetFitView:false,
+                map: map, //所属的地图实例
+
+                getPath: function(pathData, pathIndex) {
+                    //返回轨迹数据中的节点坐标信息，[AMap.LngLat, AMap.LngLat...] 或者 [[lng|number,lat|number],...]
+                    return pathData.path;
+                },
+                //点击路线显示路线名和点数
+                getHoverTitle: function(pathData, pathIndex, pointIndex) {
+                    //返回鼠标悬停时显示的信息
+                    if (pointIndex >= 0) {
+                        //鼠标悬停在某个轨迹节点上
+                        return pathData.name + '，点：' + pointIndex + '/' + pathData.path.length;
+                    }
+                    //鼠标悬停在某个轨迹之间的连线上
+                    return pathData.name + '，点数量' + pathData.path.length;
+                },
+                renderOptions: {
+                    //轨迹线的样式
+//                    strokeStyle: 'red', //线颜色，比如 red, rgb(255,0,0), rgba(0,0,0,1)等
+//                    lineWidth:  100,   //线宽度
+//                    borderStyle: 'yellow', // 描边颜色
+//                    borderWidth: 4,  //描边宽度
+//                    //方向箭头样式，lineWidth>=4 时有效，Object类型的取值见下方dirArrowStyle
+//                    //为true时直接使用默认配置，renderAllPointsIfNumberBelow: -1 //绘制路线节点，如不需要可设置为-1
+//
+//                    //dirArrowStyle  轨迹线上方向箭头的默认配置（pathLine***Style中可覆盖），属性继承 pathLineStyle
+//                    //额外属性： stepSpace: {number} 箭头排布的间隔，单位像素 width: {number} 箭头宽度，通常不用设置，直接取所在轨迹线的lineWidth
+                    renderAllPointsIfNumberBelow: 100
+                }
+            });
+
+            window.pathSimplifierIns = pathSimplifierIns;
+            //设置数据
+            pathSimplifierIns.setData([{
+                name: '洛阳->商丘',
+                path: [
+                    [112.436403,34.68547],
+                    [112.486176,34.696696],
+                    [112.982186,34.759987],
+                    [113.427133,34.745319],
+                    [113.589868,34.459335],
+                    [113.850793,34.524983],
+                    [115.170526,34.647088],
+                    [115.655297,34.438951],
+                ]
+            }]);
+
+            //对第一条线路（即索引 0）创建一个巡航器
+//            var navg1 = pathSimplifierIns.createPathNavigator(0, {
+//                loop: true, //循环播放
+//                speed: 100000 //巡航速度，单位千米/小时
+//            });
+            var navg1 = pathSimplifierIns.createPathNavigator(0, {
+                loop: false, //循环播放
+                speed: 100000, // 巡航速度，单位千米/小时
+                pathNavigatorStyle: {
+                    width: 24,
+                    height: 24,
+                    //使用图片
+                    content: PathSimplifier.Render.Canvas.getImageContent('__STATIC__/images/car.png', onload, onerror),
+                    strokeStyle: null,
+                    fillStyle: null,
+                    //经过路径的样式
+                    pathLinePassedStyle: {
+                        lineWidth: 6,
+                        strokeStyle: 'black',
+                        dirArrowStyle: {
+                            stepSpace: 15,
+                            strokeStyle: 'red'
+                        }
+                    }
+                }
+             });
+
+            navg1.start();
+        });
+
+
+
+    });
+</script>
+
+
+
+
+<!--<h1 class="totle h1" style="padding: 35px">感谢各位的支持！！!</h1>-->
+    <!--<div class="row totle" style="width: 900px;margin-left: 440px;">-->
+        <!--<div class="col-md-6" style="width: 400px;height: 100%;text-align: center">-->
+            <!--<img src="__STATIC__/images/pay/ZhiFuBao.png" alt="支付宝">-->
+            <!--<p class="h3" style="text-align: center">支付宝</p>-->
+        <!--</div>-->
+        <!--<div class="col-md-6" style="width: 400px;height: 100%;margin-left: 11%">-->
+            <!--<img src="__STATIC__/images/pay/WeiXin.png" alt="微信">-->
+            <!--<p class="h3" style="text-align: center">微信</p>-->
+        <!--</div>-->
+    <!--</div>-->
