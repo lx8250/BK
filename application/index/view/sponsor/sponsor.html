@@ -30,11 +30,11 @@
     <!--回车搜索-->
     <div id="panel"></div>
     <!--实时路况-->
-    <!--<div class="input-card" style="width: auto;">-->
-        <!--<div class="input-item">-->
-            <!--<button class="btn" id="btn">显示/隐藏实时路况</button>-->
-        <!--</div>-->
-    <!--</div>-->
+    <div class="input-card" style="width: auto;">
+        <div class="input-item">
+            <button class="btn" id="btn">显示/隐藏实时路况</button>
+        </div>
+    </div>
 </div>
 
 <script>
@@ -54,125 +54,125 @@
 //        });
 
 //-------------------------------------------------------
-//        //实时路况图层
-//        //使用TileLayer.Traffic在地图上添加实时交通图，适用于显示实时交通的场景。
-//        var trafficLayer = new AMap.TileLayer.Traffic({
-//            zIndex: 10
-//        });
-//        //显示/隐藏试试路况
-//        var isVisible = true;
-//        $('#btn').click(function () {
-//            map.add(trafficLayer);//添加图层到地图
-//            if (isVisible) {
-//                trafficLayer.show();
-//                isVisible = false;
-//            } else {
-//                trafficLayer.hide();
-//                isVisible = true;
-//            }
-//        });
+        //实时路况图层
+        //使用TileLayer.Traffic在地图上添加实时交通图，适用于显示实时交通的场景。
+        var trafficLayer = new AMap.TileLayer.Traffic({
+            zIndex: 10
+        });
+        //显示/隐藏试试路况
+        var isVisible = true;
+        $('#btn').click(function () {
+            map.add(trafficLayer);//添加图层到地图
+            if (isVisible) {
+                trafficLayer.show();
+                isVisible = false;
+            } else {
+                trafficLayer.hide();
+                isVisible = true;
+            }
+        });
 //-------------------------------------------------------
-        //添加marker标记
-//        addMarker();
-//        function addMarker() {
-//            var marker = new AMap.Marker({
-//                map: map,
-//                title:'地图测试',
-//                position: [112.33715,34.6827],
-//            });
-//        }
+//        添加marker标记
+        addMarker();
+        function addMarker() {
+            var marker = new AMap.Marker({
+                map: map,
+                title:'地图测试',
+                position: [112.33715,34.6827],
+            });
+        }
 //----------------------------------------------------------
 //        获取自己当前位置（需要引入谷歌的定位功能）地图初始化加载的定位只能获取到城市级别信息，如果想获取到具体的位置就要借助浏览器定位
-//        AMap.plugin('AMap.Geolocation', function() {
-//            var geolocation = new AMap.Geolocation({
-//                enableHighAccuracy: true,//是否使用高精度定位，默认:true
-//                timeout: 10000,          //超过10秒后停止定位，默认：5s
-//                buttonPosition:'RB',    //定位按钮的停靠位置
-//                buttonOffset: new AMap.Pixel(10, 20),//定位按钮与设置的停靠位置的偏移量，默认：Pixel(10, 20)
-//                zoomToAccuracy: true,   //定位成功后是否自动调整地图视野到定位点(回到自己的位置)
-//
-//            });
-//            map.addControl(geolocation);
-//            geolocation.getCurrentPosition(function(status,result){
-//                if(status=='complete'){
-////                    onComplete(result);
-//                }else{
-////                    onError(result)
-//                }
-//            });
-//        });
+        AMap.plugin('AMap.Geolocation', function() {
+            var geolocation = new AMap.Geolocation({
+                enableHighAccuracy: true,//是否使用高精度定位，默认:true
+                timeout: 10000,          //超过10秒后停止定位，默认：5s
+                buttonPosition:'RB',    //定位按钮的停靠位置
+                buttonOffset: new AMap.Pixel(10, 20),//定位按钮与设置的停靠位置的偏移量，默认：Pixel(10, 20)
+                zoomToAccuracy: true,   //定位成功后是否自动调整地图视野到定位点(回到自己的位置)
 
-//        //解析定位结果
-//        function onComplete(data) {
-//            document.getElementById('status').innerHTML='定位成功';
-//            var str = [];
-//            str.push('定位结果：' + data.position);
-//            str.push('定位类别：' + data.location_type);
-//            if(data.accuracy){
-//                str.push('精度：' + data.accuracy + ' 米');
-//            }//如为IP精确定位结果则没有精度信息
-//            str.push('是否经过偏移：' + (data.isConverted ? '是' : '否'));
-//            document.getElementById('result').innerHTML = str.join('<br>');
-//        }
-//        //解析定位错误信息
-//        function onError(data) {
-//            document.getElementById('status').innerHTML='定位失败'
-//            document.getElementById('result').innerHTML = '失败原因排查信息:'+data.message;
-//        }
+            });
+            map.addControl(geolocation);
+            geolocation.getCurrentPosition(function(status,result){
+                if(status=='complete'){
+//                    onComplete(result);
+                }else{
+//                    onError(result)
+                }
+            });
+        });
+
+        //解析定位结果
+        function onComplete(data) {
+            document.getElementById('status').innerHTML='定位成功';
+            var str = [];
+            str.push('定位结果：' + data.position);
+            str.push('定位类别：' + data.location_type);
+            if(data.accuracy){
+                str.push('精度：' + data.accuracy + ' 米');
+            }//如为IP精确定位结果则没有精度信息
+            str.push('是否经过偏移：' + (data.isConverted ? '是' : '否'));
+            document.getElementById('result').innerHTML = str.join('<br>');
+        }
+        //解析定位错误信息
+        function onError(data) {
+            document.getElementById('status').innerHTML='定位失败'
+            document.getElementById('result').innerHTML = '失败原因排查信息:'+data.message;
+        }
 
 //----------------------------------------------------------------------------
         //搜索地点，输入提示插件AMap.Autocomplete，POI搜索插件AMap.PlaceSearch
         //没有回车搜索功能在下面
-//        AMap.plugin(['AMap.Autocomplete','AMap.PlaceSearch'],function(){
-//            var autoOptions = {
-//                // 城市，默认全国
-//                city: "全国",
-//                // 使用联想输入的input的id
-//                input: "tipinput"
-//            }
-//            var autocomplete= new AMap.Autocomplete(autoOptions)
-//            //搜索提示
-//            var placeSearch = new AMap.PlaceSearch({
-//                city:'全国',
-//                map:map
-//            })
-//            AMap.event.addListener(autocomplete, 'select', function(e){
-//                //TODO 针对选中的poi实现自己的功能
-//                placeSearch.search(e.poi.name)
-//            })
-//            //绑定查询点击、回车事件
-//            document.querySelector('#tipinput').onkeydown = function(e) {
-//                if (e.keyCode === 13) {
-//                    //获取当前数据
-//                    //当点击回车的时候搜索
-//                    var val = $('#tipinput').val();
-//                    AMap.service(["AMap.PlaceSearch"], function() {
-//                        //获取当前城市city
-//                        AMap.plugin('AMap.CitySearch', function () {
-//                            var citySearch = new AMap.CitySearch()
-//                            citySearch.getLocalCity(function (status, result) {
-//                                if (status === 'complete' && result.info === 'OK') {
-//                                    //构造地点查询类
-//                                    var placeSearch = new AMap.PlaceSearch({
-//                                        pageSize: 5, // 单页显示结果条数
-//                                        pageIndex: 1, // 页码
-//                                        city: result.city, // 兴趣点城市
-//                                        citylimit: false,  //是否强制限制在设置的城市内搜索
-//                                        map: map, // 展现结果的地图实例
-//                                        panel: "panel", // 结果列表将在此容器中进行展示。
-//                                        autoFitView: true // 是否自动调整地图视野使绘制的 Marker点都处于视口的可见范围
-//                                    });
-//                                    //关键字查询
-//                                    placeSearch.search(val);
-//                                }
-//                            })
-//                        })
-//                    });
-//                    return false;
-//                }
-//                return true;
-//            };
-//        });
+        AMap.plugin(['AMap.Autocomplete','AMap.PlaceSearch'],function(){
+            var autoOptions = {
+                // 城市，默认全国
+                city: "全国",
+                // 使用联想输入的input的id
+                input: "tipinput"
+            }
+            var autocomplete= new AMap.Autocomplete(autoOptions)
+            //搜索提示
+            var placeSearch = new AMap.PlaceSearch({
+                city:'全国',
+                map:map
+            })
+            AMap.event.addListener(autocomplete, 'select', function(e){
+                //TODO 针对选中的poi实现自己的功能
+                placeSearch.search(e.poi.name)
+            })
+            //绑定查询点击、回车事件
+            document.querySelector('#tipinput').onkeydown = function(e) {
+                if (e.keyCode === 13) {
+                    //获取当前数据
+                    //当点击回车的时候搜索
+                    var val = $('#tipinput').val();
+                    AMap.service(["AMap.PlaceSearch"], function() {
+                        //获取当前城市city
+                        AMap.plugin('AMap.CitySearch', function () {
+                            var citySearch = new AMap.CitySearch()
+                            citySearch.getLocalCity(function (status, result) {
+                                if (status === 'complete' && result.info === 'OK') {
+                                    //构造地点查询类
+                                    var placeSearch = new AMap.PlaceSearch({
+                                        pageSize: 5, // 单页显示结果条数
+                                        pageIndex: 1, // 页码
+                                        city: result.city, // 兴趣点城市
+                                        citylimit: false,  //是否强制限制在设置的城市内搜索
+                                        map: map, // 展现结果的地图实例
+                                        panel: "panel", // 结果列表将在此容器中进行展示。
+                                        autoFitView: true // 是否自动调整地图视野使绘制的 Marker点都处于视口的可见范围
+                                    });
+                                    //关键字查询
+                                    placeSearch.search(val);
+                                }
+                            })
+                        })
+                    });
+                    return false;
+                }
+                return true;
+            };
+        });
 
 //---------------------------------------------------------------------------------
 //        路线规划(货车)
