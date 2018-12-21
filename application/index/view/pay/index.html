@@ -1,0 +1,30 @@
+{include file="public/header"}
+<div class="totle">
+    <form action="/index/Pay/pay">
+        <div style="width: 800px;height:300px">
+            <div style="margin-left: 50px;margin-top: 100px;float: left">
+                <img src="__STATIC__/images/car.png" title="五元商品">
+                <input type="radio" value="5" name="wuyuan" checked/>五元商品
+            </div>
+            <div style="margin-left: 50px;margin-top: 100px;float: left">
+                <img src="__STATIC__/images/car.png" title="十元商品">
+                <input type="radio" value="10" name="wuyuan"/>十元商品
+            </div>
+            <div style="margin-left: 50px;margin-top: 100px;float: left">
+                <img src="__STATIC__/images/car.png" title="五十元商品">
+                <input type="radio" value="50" name="wuyuan"/>五十元商品
+            </div>
+            <div style="margin-left: 50px;margin-top: 100px;float: left">
+                <img src="__STATIC__/images/car.png" title="百元商品">
+                <input type="radio" value="100" name="wuyuan"/>百元商品
+            </div>
+        </div>
+        <div style="margin-left: 50px;float: left">
+            <input type="radio" value="1" name="pay" checked/>支付宝
+        </div>
+        <div style="margin-left: 50px;float: left">
+            <input type="radio" value="2" name="pay"/>微信
+        </div>
+        <input type="submit" value="确认支付" style="margin-top: 100px;margin-left: 20%">
+    </form>
+</div>
