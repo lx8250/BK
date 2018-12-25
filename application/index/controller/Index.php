@@ -9,4 +9,5 @@ class Index extends Controller
 //        visit_ip();
         return $this->fetch();
     }
+
 }
