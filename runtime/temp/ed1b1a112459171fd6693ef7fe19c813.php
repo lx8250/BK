@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:49:"E:\BK/application/index\view\message\message.html";i:1526981167;s:47:"E:\BK\application\index\view\public\header.html";i:1545297502;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:49:"E:\BK/application/index\view\message\message.html";i:1526981167;s:47:"E:\BK\application\index\view\public\header.html";i:1545356743;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -54,7 +54,7 @@
             <li class="layui-nav-item"><a href="<?php echo url('/index/note/note'); ?>">生活笔记</a></li>
             <li class="layui-nav-item"><a href="<?php echo url('/index/message/message'); ?>">给我留言</a></li>
             <li class="layui-nav-item"><a href="<?php echo url('/index/sponsor/sponsor'); ?>">高德地图</a></li>
-            <li class="layui-nav-item"><a href="<?php echo url('/index/pay/pay'); ?>">支付界面</a></li>
+            <li class="layui-nav-item"><a href="<?php echo url('/index/pay/index'); ?>">支付界面</a></li>
             <li class="layui-nav-item"><a href="<?php echo url('/index/personal/personal'); ?>">个人中心</a></li>
             <li style="padding-top: 10px;float: right;color: black;margin-left: 326px;padding-right: 9px;" class="layui-input-inline">
                 <input type="text" name="title" style="width: 180px;float: left;height: 38px;" lay-verify="required" placeholder="请输入想要查找的内容..." class="layui-input">
